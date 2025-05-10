@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package lnrpc;
+
+service Lightning {
+  rpc SubscribeInvoices (SubscribeInvoicesRequest) returns (stream Invoice);
+}
+
+message SubscribeInvoicesRequest {
+  int64 add_index = 1;
+}
+
+message Invoice {
+  string payment_request = 1;
+  bool settled = 2;
+  uint64 amount_paid = 3;
+}
