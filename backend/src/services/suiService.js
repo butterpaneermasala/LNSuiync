@@ -1,13 +1,18 @@
 import { getSigner } from '../config/suiConfig.js';
-import { TransactionBlock } from '@mysten/sui.js/transactions';
+import { Transaction } from '@mysten/sui/transactions';
+import { logInfo, logError, logEnvVariables } from '../utils/logger.js';
+
+logEnvVariables();
 
 export const mintTokens = async (amountPaid) => {
+  logInfo(`Starting mintTokens function with amountPaid: ${amountPaid}`);
+
   const signer = await getSigner();
 
-  // Convert satoshis to your token's smallest unit (adjust as needed)
-  const amountInTokens = amountPaid / 100000000; // Adjust conversion factor if necessary
+  const amountInTokens = amountPaid / 100000000;
+  logInfo(`Converted amountInTokens: ${amountInTokens}`);
 
-  const tx = new TransactionBlock();
+  const tx = new Transaction();
   tx.moveCall({
     target: `${process.env.PACKAGE_ID}::${process.env.MODULE}::mint`,
     arguments: [
@@ -18,12 +23,14 @@ export const mintTokens = async (amountPaid) => {
   });
 
   try {
+    logInfo('Executing transaction...');
     const result = await signer.signAndExecuteTransactionBlock({
       transactionBlock: tx,
       options: { showEffects: true, showEvents: true },
     });
-    console.log('Mint transaction successful:', result.digest);
+    logInfo(`Mint transaction successful: ${result.digest}`);
   } catch (err) {
-    console.error('Minting failed:', err);
+    logError(`Minting failed: ${err.message}`);
+    logError(`Error details: ${JSON.stringify(err)}`);
   }
 };
