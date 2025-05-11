@@ -1616,3 +1616,18 @@
 [INFO] 2025-05-11T19:28:54.722Z - Starting mintTokens function with amountPaid: 1000000
 [INFO] 2025-05-11T19:35:37.722Z - Starting mintTokens function with amountPaid: 1000000
 [INFO] 2025-05-11T19:53:43.315Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-11T20:25:34.819Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-11T20:31:11.829Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-11T20:33:49.282Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-11T20:33:49.603Z - Converted amountInTokens: 0.01
+[INFO] 2025-05-11T20:38:38.177Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-11T20:38:38.550Z - Converted amountInTokens: 0.01
+[INFO] 2025-05-11T20:42:59.537Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-11T20:42:59.805Z - Converted amountInTokens: 0.01
+[INFO] 2025-05-11T21:10:26.332Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-11T21:10:26.643Z - Converted amountInTokens: 1000000
+[INFO] 2025-05-11T21:14:58.584Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-11T21:14:58.880Z - Converted amountInTokens: 1000000
+[INFO] 2025-05-11T21:14:58.887Z - Executing transaction...
+[ERROR] 2025-05-11T21:14:58.889Z - Minting failed: signer.signAndExecuteTransactionBlock is not a function
+[ERROR] 2025-05-11T21:14:58.889Z - Error details: {}
