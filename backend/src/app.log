@@ -1631,3 +1631,5 @@
 [INFO] 2025-05-11T21:14:58.887Z - Executing transaction...
 [ERROR] 2025-05-11T21:14:58.889Z - Minting failed: signer.signAndExecuteTransactionBlock is not a function
 [ERROR] 2025-05-11T21:14:58.889Z - Error details: {}
+[INFO] 2025-05-11T21:42:49.756Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-11T21:42:50.027Z - Converted amountInTokens: 1000000
