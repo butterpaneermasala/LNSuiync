@@ -263,3 +263,1356 @@
 [INFO] 2025-05-10T20:20:52.322Z - Connecting to LND at: localhost:10001
 [INFO] 2025-05-10T20:20:52.343Z - gRPC client ready
 [ERROR] 2025-05-10T20:20:52.426Z - LND connection test failed:
+[INFO] 2025-05-10T20:51:33.894Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-10T20:51:33.910Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-10T20:51:33.918Z - Starting backend server...
+[INFO] 2025-05-10T20:51:33.918Z - Proto file path: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T20:51:33.918Z - Proto file exists at: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T20:51:33.919Z - LND_HOST: localhost
+[INFO] 2025-05-10T20:51:33.920Z - LND_PORT: 10001
+[INFO] 2025-05-10T20:51:33.920Z - gRPC Target: localhost:10001
+[INFO] 2025-05-10T20:51:33.943Z - Loading proto file from: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T20:51:34.016Z - Successfully loaded gRPC package definition
+[INFO] 2025-05-10T20:51:34.017Z - Available services in proto:
+[INFO] 2025-05-10T20:51:34.055Z - Lightning client initialized successfully
+[INFO] 2025-05-10T20:51:34.055Z - Starting payment listening directly...
+[INFO] 2025-05-10T20:51:34.057Z - LND_HOST: localhost
+[INFO] 2025-05-10T20:51:34.057Z - LND_PORT: 10001
+[INFO] 2025-05-10T20:51:34.057Z - gRPC Target: localhost:10001
+[INFO] 2025-05-10T20:51:34.059Z - Loading proto file from: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T20:51:34.064Z - Successfully loaded gRPC package definition
+[INFO] 2025-05-10T20:51:34.065Z - Available services in proto:
+[INFO] 2025-05-10T20:51:34.072Z - Checking available methods on Lightning client
+[INFO] 2025-05-10T20:51:34.073Z - Available methods: ["GetInfo","getInfo","SubscribeInvoices","subscribeInvoices"]
+[INFO] 2025-05-10T20:51:34.073Z - Using subscribeInvoices method to listen for Lightning payment events...
+[INFO] 2025-05-10T20:51:34.087Z - Successfully created invoice subscription
+[INFO] 2025-05-10T20:51:34.109Z - Backend server is running on port 3000
+[INFO] 2025-05-10T20:51:44.593Z - Received raw invoice data: {"memo":"","r_preimage":{"type":"Buffer","data":[]},"r_hash":{"type":"Buffer","data":[0,16,7,157,138,132,151,33,199,108,102,32,108,135,174,188,195,159,23,28,54,43,33,64,136,131,78,140,94,79,241,148]},"value":"#9�S�l�1;z�\u000eF��M�:$����C\u001c�f��","value_msat":"8����\u0006J�\u0002lnbcrt10m1p5pl0rqpp5yvumg5aldnfrzwm6ajjqu34enaxeqw3y7z60tj87gvww8fnx37psdqqcqzzsxqyz5vqsp529d7s4hedh6mm08uwtw3s8ep68cnneatcslz46qgen906a3xf7ms9qxpqysgqkndwgj4glg5tzg593pxfyz4962jedrwyczu4065lwaynglxhr9nhav48sllycgz8z6nt7z3u7d4ejw2uxmk6dqnt6kj4kta7tkwkm0qpg5l5yfX��\u0005hP�\u0001\n�\u0001����\u0003�\u0001\u0016\b\u0019\u0012\u0012\u0012\u000eroute-blinding \u0001�\u0001\u0016\b\u000e\u0012\u0012\u0012\fpayment-addr\u0018\u0001 \u0001�\u0001\u001b\b\u0011\u0012\u0017\u0012\u0013multi-path-payments \u0001�\u0001\u0013\b\b\u0012\u000f\u0012\ttlv-onion\u0018\u0001 \u0001�\u0001 Q[�V�m����r�\u0018\u001f!��9��>*�\b���v&O�","settled":false,"creation_date":"0","settle_date":"0","payment_request":"","description_hash":"","expiry":"0","fallback_addr":"","cltv_expiry":"0","amt_paid_sat":"","amt_paid_msat":""}
+[INFO] 2025-05-10T20:51:44.595Z - Parsed invoice data: {"memo":"","r_hash":"0010079d8a849721c76c66206c87aebcc39f171c362b214088834e8c5e4ff194","value_sat":0,"value_msat":null,"settled":false,"creation_date":"0","settle_date":"0","payment_request":"","payment_hash":"0010079d8a849721c76c66206c87aebcc39f171c362b214088834e8c5e4ff194"}
+[INFO] 2025-05-10T20:51:44.595Z - Invoice is not settled yet.
+[INFO] 2025-05-10T20:51:58.939Z - Received raw invoice data: {"memo":"","r_preimage":{"type":"Buffer","data":[]},"r_hash":{"type":"Buffer","data":[0,16,7,157,138,132,151,33,199,108,102,32,108,135,174,188,195,159,23,28,54,43,33,64,136,131,78,140,94,79,241,148]},"value":"#9�S�l�1;z�\u000eF��M�:$����C\u001c�f��","value_msat":"0\u00018����\u0006@����\u0006J�\u0002lnbcrt10m1p5pl0rqpp5yvumg5aldnfrzwm6ajjqu34enaxeqw3y7z60tj87gvww8fnx37psdqqcqzzsxqyz5vqsp529d7s4hedh6mm08uwtw3s8ep68cnneatcslz46qgen906a3xf7ms9qxpqysgqkndwgj4glg5tzg593pxfyz4962jedrwyczu4065lwaynglxhr9nhav48sllycgz8z6nt7z3u7d4ejw2uxmk6dqnt6kj4kta7tkwkm0qpg5l5yfX��\u0005hP�\u0001\n�\u0001\n�\u0001����\u0003�\u0001��=�\u0001����\u0003�\u0001\u0001�\u0001)\b������\u001b\u0010\t\u0018����\u0003 s(����\u00060����\u00068�\u0001@\u0001P����\u0003�\u0001����\u0003�\u0001\u0013\b\b\u0012\u000f\u0012\ttlv-onion\u0018\u0001 \u0001�\u0001\u0016\b\u000e\u0012\u0012\u0012\fpayment-addr\u0018\u0001 \u0001�\u0001\u001b\b\u0011\u0012\u0017\u0012\u0013multi-path-payments \u0001�\u0001\u0016\b\u0019\u0012\u0012\u0012\u000eroute-blinding \u0001�\u0001 Q[�V�m����r�\u0018\u001f!��9��>*�\b���v&O�","settled":false,"creation_date":"0","settle_date":"0","payment_request":"","description_hash":"","expiry":"0","fallback_addr":"","cltv_expiry":"0","amt_paid_sat":"","amt_paid_msat":""}
+[INFO] 2025-05-10T20:51:58.940Z - Parsed invoice data: {"memo":"","r_hash":"0010079d8a849721c76c66206c87aebcc39f171c362b214088834e8c5e4ff194","value_sat":0,"value_msat":null,"settled":false,"creation_date":"0","settle_date":"0","payment_request":"","payment_hash":"0010079d8a849721c76c66206c87aebcc39f171c362b214088834e8c5e4ff194"}
+[INFO] 2025-05-10T20:51:58.941Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:04:19.752Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-10T21:04:19.761Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-10T21:04:19.769Z - Starting backend server...
+[INFO] 2025-05-10T21:04:19.769Z - Proto file path: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:04:19.770Z - Proto file exists at: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:04:19.770Z - LND_HOST: localhost
+[INFO] 2025-05-10T21:04:19.771Z - LND_PORT: 10001
+[INFO] 2025-05-10T21:04:19.771Z - gRPC Target: localhost:10001
+[INFO] 2025-05-10T21:04:19.831Z - Loading proto file from: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:04:19.871Z - Successfully loaded gRPC package definition
+[INFO] 2025-05-10T21:04:19.872Z - Available services in proto:
+[INFO] 2025-05-10T21:04:19.903Z - Lightning client initialized successfully
+[INFO] 2025-05-10T21:04:19.904Z - Starting payment listening directly...
+[INFO] 2025-05-10T21:04:19.904Z - LND_HOST: localhost
+[INFO] 2025-05-10T21:04:19.905Z - LND_PORT: 10001
+[INFO] 2025-05-10T21:04:19.905Z - gRPC Target: localhost:10001
+[INFO] 2025-05-10T21:04:19.907Z - Loading proto file from: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:04:19.912Z - Successfully loaded gRPC package definition
+[INFO] 2025-05-10T21:04:19.913Z - Available services in proto:
+[INFO] 2025-05-10T21:04:19.922Z - Checking available methods on Lightning client
+[INFO] 2025-05-10T21:04:19.923Z - Available methods: ["GetInfo","getInfo","SubscribeInvoices","subscribeInvoices"]
+[INFO] 2025-05-10T21:04:19.923Z - Using subscribeInvoices method to listen for Lightning payment events...
+[INFO] 2025-05-10T21:04:19.939Z - Successfully created invoice subscription
+[INFO] 2025-05-10T21:04:19.968Z - Backend server is running on port 3000
+[INFO] 2025-05-10T21:04:27.747Z - ------ DETAILED INVOICE DEBUG ------
+[INFO] 2025-05-10T21:04:27.748Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-10T21:04:27.748Z - Raw settled value: false (type: boolean)
+[INFO] 2025-05-10T21:04:27.748Z - Creation date: 0
+[INFO] 2025-05-10T21:04:27.748Z - Settle date: 0
+[INFO] 2025-05-10T21:04:27.748Z - Checking possible settlement fields:
+[INFO] 2025-05-10T21:04:27.748Z -   settled: false (type: boolean)
+[INFO] 2025-05-10T21:04:27.748Z -   settle_date: 0 (type: string)
+[INFO] 2025-05-10T21:04:27.749Z - Settlement detection result: false
+[INFO] 2025-05-10T21:04:27.749Z - Final parsed invoice: {"memo":"","r_hash":"366e95a85df14ec03c92457890d39f70d85a5ab5a152b4d3f2678e5f1934f756","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"366e95a85df14ec03c92457890d39f70d85a5ab5a152b4d3f2678e5f1934f756"}
+[INFO] 2025-05-10T21:04:27.749Z - ------ END INVOICE DEBUG ------
+[INFO] 2025-05-10T21:04:27.750Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:06:03.486Z - ------ DETAILED INVOICE DEBUG ------
+[INFO] 2025-05-10T21:06:03.487Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-10T21:06:03.487Z - Raw settled value: false (type: boolean)
+[INFO] 2025-05-10T21:06:03.487Z - Creation date: 0
+[INFO] 2025-05-10T21:06:03.487Z - Settle date: 0
+[INFO] 2025-05-10T21:06:03.487Z - Checking possible settlement fields:
+[INFO] 2025-05-10T21:06:03.487Z -   settled: false (type: boolean)
+[INFO] 2025-05-10T21:06:03.488Z -   settle_date: 0 (type: string)
+[INFO] 2025-05-10T21:06:03.488Z - Settlement detection result: false
+[INFO] 2025-05-10T21:06:03.488Z - Final parsed invoice: {"memo":"","r_hash":"c764e949d475143e911a9c527b44663d6a619756042b50e6dfcd1e2f85cd0852","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"c764e949d475143e911a9c527b44663d6a619756042b50e6dfcd1e2f85cd0852"}
+[INFO] 2025-05-10T21:06:03.489Z - ------ END INVOICE DEBUG ------
+[INFO] 2025-05-10T21:06:03.489Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:06:29.371Z - Payment stream ended. Reconnecting...
+[INFO] 2025-05-10T21:06:34.376Z - LND_HOST: localhost
+[INFO] 2025-05-10T21:06:34.382Z - LND_PORT: 10001
+[INFO] 2025-05-10T21:06:34.382Z - gRPC Target: localhost:10001
+[INFO] 2025-05-10T21:06:34.385Z - Loading proto file from: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:06:34.394Z - Successfully loaded gRPC package definition
+[INFO] 2025-05-10T21:06:34.395Z - Available services in proto:
+[INFO] 2025-05-10T21:06:34.398Z - Checking available methods on Lightning client
+[INFO] 2025-05-10T21:06:34.398Z - Available methods: ["GetInfo","getInfo","SubscribeInvoices","subscribeInvoices"]
+[INFO] 2025-05-10T21:06:34.398Z - Using subscribeInvoices method to listen for Lightning payment events...
+[INFO] 2025-05-10T21:06:34.401Z - Successfully created invoice subscription
+[ERROR] 2025-05-10T21:06:34.540Z - Payment stream error: 14 UNAVAILABLE: No connection established. Last error: Error: connect ECONNREFUSED 127.0.0.1:10001
+[INFO] 2025-05-10T21:06:34.541Z - Payment stream ended. Reconnecting...
+[INFO] 2025-05-10T21:06:51.703Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-10T21:06:51.719Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-10T21:06:51.746Z - Starting backend server...
+[INFO] 2025-05-10T21:06:51.747Z - Proto file path: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:06:51.749Z - Proto file exists at: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:06:51.751Z - LND_HOST: localhost
+[INFO] 2025-05-10T21:06:51.752Z - LND_PORT: 10001
+[INFO] 2025-05-10T21:06:51.753Z - gRPC Target: localhost:10001
+[INFO] 2025-05-10T21:06:51.803Z - Loading proto file from: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:06:51.960Z - Successfully loaded gRPC package definition
+[INFO] 2025-05-10T21:06:51.964Z - Available services in proto:
+[INFO] 2025-05-10T21:06:52.042Z - Lightning client initialized successfully
+[INFO] 2025-05-10T21:06:52.044Z - Starting payment listening directly...
+[INFO] 2025-05-10T21:06:52.051Z - LND_HOST: localhost
+[INFO] 2025-05-10T21:06:52.053Z - LND_PORT: 10001
+[INFO] 2025-05-10T21:06:52.054Z - gRPC Target: localhost:10001
+[INFO] 2025-05-10T21:06:52.059Z - Loading proto file from: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:06:52.079Z - Successfully loaded gRPC package definition
+[INFO] 2025-05-10T21:06:52.081Z - Available services in proto:
+[INFO] 2025-05-10T21:06:52.093Z - Checking available methods on Lightning client
+[INFO] 2025-05-10T21:06:52.096Z - Available methods: ["GetInfo","getInfo","SubscribeInvoices","subscribeInvoices"]
+[INFO] 2025-05-10T21:06:52.097Z - Using subscribeInvoices method to listen for Lightning payment events...
+[INFO] 2025-05-10T21:06:52.129Z - Successfully created invoice subscription
+[INFO] 2025-05-10T21:06:52.173Z - Backend server is running on port 3000
+[ERROR] 2025-05-10T21:06:52.405Z - Payment stream error: 2 UNKNOWN: the RPC server is in the process of starting up, but not yet ready to accept calls
+[INFO] 2025-05-10T21:06:52.406Z - Payment stream ended. Reconnecting...
+[INFO] 2025-05-10T21:06:57.407Z - LND_HOST: localhost
+[INFO] 2025-05-10T21:06:57.408Z - LND_PORT: 10001
+[INFO] 2025-05-10T21:06:57.408Z - gRPC Target: localhost:10001
+[INFO] 2025-05-10T21:06:57.412Z - Loading proto file from: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:06:57.421Z - Successfully loaded gRPC package definition
+[INFO] 2025-05-10T21:06:57.421Z - Available services in proto:
+[INFO] 2025-05-10T21:06:57.424Z - Checking available methods on Lightning client
+[INFO] 2025-05-10T21:06:57.426Z - Available methods: ["GetInfo","getInfo","SubscribeInvoices","subscribeInvoices"]
+[INFO] 2025-05-10T21:06:57.426Z - Using subscribeInvoices method to listen for Lightning payment events...
+[INFO] 2025-05-10T21:06:57.432Z - Successfully created invoice subscription
+[ERROR] 2025-05-10T21:06:57.520Z - Payment stream error: 2 UNKNOWN: the RPC server is in the process of starting up, but not yet ready to accept calls
+[INFO] 2025-05-10T21:06:57.521Z - Payment stream ended. Reconnecting...
+[INFO] 2025-05-10T21:07:02.407Z - LND_HOST: localhost
+[INFO] 2025-05-10T21:07:02.408Z - LND_PORT: 10001
+[INFO] 2025-05-10T21:07:02.410Z - gRPC Target: localhost:10001
+[INFO] 2025-05-10T21:07:02.415Z - Loading proto file from: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:07:02.424Z - Successfully loaded gRPC package definition
+[INFO] 2025-05-10T21:07:02.426Z - Available services in proto:
+[INFO] 2025-05-10T21:07:02.438Z - Checking available methods on Lightning client
+[INFO] 2025-05-10T21:07:02.440Z - Available methods: ["GetInfo","getInfo","SubscribeInvoices","subscribeInvoices"]
+[INFO] 2025-05-10T21:07:02.441Z - Using subscribeInvoices method to listen for Lightning payment events...
+[INFO] 2025-05-10T21:07:02.450Z - Successfully created invoice subscription
+[INFO] 2025-05-10T21:07:02.956Z - LND_HOST: localhost
+[INFO] 2025-05-10T21:07:02.957Z - LND_PORT: 10001
+[INFO] 2025-05-10T21:07:02.957Z - gRPC Target: localhost:10001
+[INFO] 2025-05-10T21:07:02.961Z - Loading proto file from: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:07:02.976Z - Successfully loaded gRPC package definition
+[INFO] 2025-05-10T21:07:02.978Z - Available services in proto:
+[INFO] 2025-05-10T21:07:02.981Z - Checking available methods on Lightning client
+[INFO] 2025-05-10T21:07:02.982Z - Available methods: ["GetInfo","getInfo","SubscribeInvoices","subscribeInvoices"]
+[INFO] 2025-05-10T21:07:02.982Z - Using subscribeInvoices method to listen for Lightning payment events...
+[INFO] 2025-05-10T21:07:02.984Z - Successfully created invoice subscription
+[INFO] 2025-05-10T21:07:07.521Z - LND_HOST: localhost
+[INFO] 2025-05-10T21:07:07.522Z - LND_PORT: 10001
+[INFO] 2025-05-10T21:07:07.522Z - gRPC Target: localhost:10001
+[INFO] 2025-05-10T21:07:07.526Z - Loading proto file from: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:07:07.545Z - Successfully loaded gRPC package definition
+[INFO] 2025-05-10T21:07:07.548Z - Available services in proto:
+[INFO] 2025-05-10T21:07:07.565Z - Checking available methods on Lightning client
+[INFO] 2025-05-10T21:07:07.568Z - Available methods: ["GetInfo","getInfo","SubscribeInvoices","subscribeInvoices"]
+[INFO] 2025-05-10T21:07:07.569Z - Using subscribeInvoices method to listen for Lightning payment events...
+[INFO] 2025-05-10T21:07:07.574Z - Successfully created invoice subscription
+[INFO] 2025-05-10T21:07:26.903Z - ------ DETAILED INVOICE DEBUG ------
+[INFO] 2025-05-10T21:07:26.904Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-10T21:07:26.904Z - Raw settled value: false (type: boolean)
+[INFO] 2025-05-10T21:07:26.904Z - Creation date: 0
+[INFO] 2025-05-10T21:07:26.904Z - Settle date: 0
+[INFO] 2025-05-10T21:07:26.904Z - Checking possible settlement fields:
+[INFO] 2025-05-10T21:07:26.905Z -   settled: false (type: boolean)
+[INFO] 2025-05-10T21:07:26.905Z -   settle_date: 0 (type: string)
+[INFO] 2025-05-10T21:07:26.905Z - Settlement detection result: false
+[INFO] 2025-05-10T21:07:26.905Z - Final parsed invoice: {"memo":"","r_hash":"99f0b538cb84c4e2f7e64a1ba430055ae016d73e7e6e0c71122aa28f050cb46d","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"99f0b538cb84c4e2f7e64a1ba430055ae016d73e7e6e0c71122aa28f050cb46d"}
+[INFO] 2025-05-10T21:07:26.905Z - ------ END INVOICE DEBUG ------
+[INFO] 2025-05-10T21:07:26.905Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:07:26.911Z - ------ DETAILED INVOICE DEBUG ------
+[INFO] 2025-05-10T21:07:26.912Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-10T21:07:26.912Z - Raw settled value: false (type: boolean)
+[INFO] 2025-05-10T21:07:26.913Z - Creation date: 0
+[INFO] 2025-05-10T21:07:26.913Z - Settle date: 0
+[INFO] 2025-05-10T21:07:26.914Z - Checking possible settlement fields:
+[INFO] 2025-05-10T21:07:26.914Z -   settled: false (type: boolean)
+[INFO] 2025-05-10T21:07:26.914Z -   settle_date: 0 (type: string)
+[INFO] 2025-05-10T21:07:26.915Z - Settlement detection result: false
+[INFO] 2025-05-10T21:07:26.915Z - Final parsed invoice: {"memo":"","r_hash":"99f0b538cb84c4e2f7e64a1ba430055ae016d73e7e6e0c71122aa28f050cb46d","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"99f0b538cb84c4e2f7e64a1ba430055ae016d73e7e6e0c71122aa28f050cb46d"}
+[INFO] 2025-05-10T21:07:26.916Z - ------ END INVOICE DEBUG ------
+[INFO] 2025-05-10T21:07:26.916Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:07:26.922Z - ------ DETAILED INVOICE DEBUG ------
+[INFO] 2025-05-10T21:07:26.922Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-10T21:07:26.923Z - Raw settled value: false (type: boolean)
+[INFO] 2025-05-10T21:07:26.923Z - Creation date: 0
+[INFO] 2025-05-10T21:07:26.923Z - Settle date: 0
+[INFO] 2025-05-10T21:07:26.923Z - Checking possible settlement fields:
+[INFO] 2025-05-10T21:07:26.923Z -   settled: false (type: boolean)
+[INFO] 2025-05-10T21:07:26.923Z -   settle_date: 0 (type: string)
+[INFO] 2025-05-10T21:07:26.924Z - Settlement detection result: false
+[INFO] 2025-05-10T21:07:26.924Z - Final parsed invoice: {"memo":"","r_hash":"99f0b538cb84c4e2f7e64a1ba430055ae016d73e7e6e0c71122aa28f050cb46d","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"99f0b538cb84c4e2f7e64a1ba430055ae016d73e7e6e0c71122aa28f050cb46d"}
+[INFO] 2025-05-10T21:07:26.924Z - ------ END INVOICE DEBUG ------
+[INFO] 2025-05-10T21:07:26.924Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:11:21.233Z - ------ DETAILED INVOICE DEBUG ------
+[INFO] 2025-05-10T21:11:21.234Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-10T21:11:21.235Z - Raw settled value: false (type: boolean)
+[INFO] 2025-05-10T21:11:21.235Z - Creation date: 0
+[INFO] 2025-05-10T21:11:21.235Z - Settle date: 0
+[INFO] 2025-05-10T21:11:21.235Z - Checking possible settlement fields:
+[INFO] 2025-05-10T21:11:21.236Z -   settled: false (type: boolean)
+[INFO] 2025-05-10T21:11:21.236Z -   settle_date: 0 (type: string)
+[INFO] 2025-05-10T21:11:21.236Z - Settlement detection result: false
+[INFO] 2025-05-10T21:11:21.236Z - Final parsed invoice: {"memo":"","r_hash":"5dde0f8fb96abe6f9300bfce6e6a4cc2fcc832cfe4ce88c8b36338b6021184e1","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"5dde0f8fb96abe6f9300bfce6e6a4cc2fcc832cfe4ce88c8b36338b6021184e1"}
+[INFO] 2025-05-10T21:11:21.237Z - ------ END INVOICE DEBUG ------
+[INFO] 2025-05-10T21:11:21.237Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:11:21.239Z - ------ DETAILED INVOICE DEBUG ------
+[INFO] 2025-05-10T21:11:21.240Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-10T21:11:21.240Z - Raw settled value: false (type: boolean)
+[INFO] 2025-05-10T21:11:21.240Z - Creation date: 0
+[INFO] 2025-05-10T21:11:21.240Z - Settle date: 0
+[INFO] 2025-05-10T21:11:21.241Z - Checking possible settlement fields:
+[INFO] 2025-05-10T21:11:21.241Z -   settled: false (type: boolean)
+[INFO] 2025-05-10T21:11:21.241Z -   settle_date: 0 (type: string)
+[INFO] 2025-05-10T21:11:21.241Z - Settlement detection result: false
+[INFO] 2025-05-10T21:11:21.242Z - Final parsed invoice: {"memo":"","r_hash":"5dde0f8fb96abe6f9300bfce6e6a4cc2fcc832cfe4ce88c8b36338b6021184e1","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"5dde0f8fb96abe6f9300bfce6e6a4cc2fcc832cfe4ce88c8b36338b6021184e1"}
+[INFO] 2025-05-10T21:11:21.242Z - ------ END INVOICE DEBUG ------
+[INFO] 2025-05-10T21:11:21.242Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:11:21.244Z - ------ DETAILED INVOICE DEBUG ------
+[INFO] 2025-05-10T21:11:21.245Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-10T21:11:21.245Z - Raw settled value: false (type: boolean)
+[INFO] 2025-05-10T21:11:21.245Z - Creation date: 0
+[INFO] 2025-05-10T21:11:21.245Z - Settle date: 0
+[INFO] 2025-05-10T21:11:21.245Z - Checking possible settlement fields:
+[INFO] 2025-05-10T21:11:21.245Z -   settled: false (type: boolean)
+[INFO] 2025-05-10T21:11:21.245Z -   settle_date: 0 (type: string)
+[INFO] 2025-05-10T21:11:21.246Z - Settlement detection result: false
+[INFO] 2025-05-10T21:11:21.246Z - Final parsed invoice: {"memo":"","r_hash":"5dde0f8fb96abe6f9300bfce6e6a4cc2fcc832cfe4ce88c8b36338b6021184e1","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"5dde0f8fb96abe6f9300bfce6e6a4cc2fcc832cfe4ce88c8b36338b6021184e1"}
+[INFO] 2025-05-10T21:11:21.246Z - ------ END INVOICE DEBUG ------
+[INFO] 2025-05-10T21:11:21.246Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:13:11.648Z - ------ DETAILED INVOICE DEBUG ------
+[INFO] 2025-05-10T21:13:11.649Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-10T21:13:11.649Z - Raw settled value: false (type: boolean)
+[INFO] 2025-05-10T21:13:11.650Z - Creation date: 0
+[INFO] 2025-05-10T21:13:11.651Z - Settle date: 0
+[INFO] 2025-05-10T21:13:11.651Z - Checking possible settlement fields:
+[INFO] 2025-05-10T21:13:11.651Z -   settled: false (type: boolean)
+[INFO] 2025-05-10T21:13:11.651Z -   settle_date: 0 (type: string)
+[INFO] 2025-05-10T21:13:11.652Z - Settlement detection result: false
+[INFO] 2025-05-10T21:13:11.652Z - Final parsed invoice: {"memo":"","r_hash":"4a8bfe25d316eccb28932bd16a583f64480aec872b38d7b724f85d937181fc36","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"4a8bfe25d316eccb28932bd16a583f64480aec872b38d7b724f85d937181fc36"}
+[INFO] 2025-05-10T21:13:11.652Z - ------ END INVOICE DEBUG ------
+[INFO] 2025-05-10T21:13:11.652Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:13:11.654Z - ------ DETAILED INVOICE DEBUG ------
+[INFO] 2025-05-10T21:13:11.654Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-10T21:13:11.654Z - Raw settled value: false (type: boolean)
+[INFO] 2025-05-10T21:13:11.654Z - Creation date: 0
+[INFO] 2025-05-10T21:13:11.655Z - Settle date: 0
+[INFO] 2025-05-10T21:13:11.655Z - Checking possible settlement fields:
+[INFO] 2025-05-10T21:13:11.655Z -   settled: false (type: boolean)
+[INFO] 2025-05-10T21:13:11.655Z -   settle_date: 0 (type: string)
+[INFO] 2025-05-10T21:13:11.655Z - Settlement detection result: false
+[INFO] 2025-05-10T21:13:11.655Z - Final parsed invoice: {"memo":"","r_hash":"4a8bfe25d316eccb28932bd16a583f64480aec872b38d7b724f85d937181fc36","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"4a8bfe25d316eccb28932bd16a583f64480aec872b38d7b724f85d937181fc36"}
+[INFO] 2025-05-10T21:13:11.655Z - ------ END INVOICE DEBUG ------
+[INFO] 2025-05-10T21:13:11.655Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:13:11.658Z - ------ DETAILED INVOICE DEBUG ------
+[INFO] 2025-05-10T21:13:11.658Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-10T21:13:11.658Z - Raw settled value: false (type: boolean)
+[INFO] 2025-05-10T21:13:11.658Z - Creation date: 0
+[INFO] 2025-05-10T21:13:11.658Z - Settle date: 0
+[INFO] 2025-05-10T21:13:11.659Z - Checking possible settlement fields:
+[INFO] 2025-05-10T21:13:11.659Z -   settled: false (type: boolean)
+[INFO] 2025-05-10T21:13:11.659Z -   settle_date: 0 (type: string)
+[INFO] 2025-05-10T21:13:11.659Z - Settlement detection result: false
+[INFO] 2025-05-10T21:13:11.659Z - Final parsed invoice: {"memo":"","r_hash":"4a8bfe25d316eccb28932bd16a583f64480aec872b38d7b724f85d937181fc36","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"4a8bfe25d316eccb28932bd16a583f64480aec872b38d7b724f85d937181fc36"}
+[INFO] 2025-05-10T21:13:11.659Z - ------ END INVOICE DEBUG ------
+[INFO] 2025-05-10T21:13:11.660Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:14:33.807Z - ------ DETAILED INVOICE DEBUG ------
+[INFO] 2025-05-10T21:14:33.808Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-10T21:14:33.808Z - Raw settled value: false (type: boolean)
+[INFO] 2025-05-10T21:14:33.808Z - Creation date: 0
+[INFO] 2025-05-10T21:14:33.809Z - Settle date: 0
+[INFO] 2025-05-10T21:14:33.809Z - Checking possible settlement fields:
+[INFO] 2025-05-10T21:14:33.809Z -   settled: false (type: boolean)
+[INFO] 2025-05-10T21:14:33.809Z -   settle_date: 0 (type: string)
+[INFO] 2025-05-10T21:14:33.809Z - Settlement detection result: false
+[INFO] 2025-05-10T21:14:33.809Z - Final parsed invoice: {"memo":"","r_hash":"2c2874b2b1f2f7c93e21cc48f377549365b1f4fc51ab6e8c0054d7fd1012e756","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"2c2874b2b1f2f7c93e21cc48f377549365b1f4fc51ab6e8c0054d7fd1012e756"}
+[INFO] 2025-05-10T21:14:33.809Z - ------ END INVOICE DEBUG ------
+[INFO] 2025-05-10T21:14:33.809Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:14:33.810Z - ------ DETAILED INVOICE DEBUG ------
+[INFO] 2025-05-10T21:14:33.810Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-10T21:14:33.810Z - Raw settled value: false (type: boolean)
+[INFO] 2025-05-10T21:14:33.810Z - Creation date: 0
+[INFO] 2025-05-10T21:14:33.810Z - Settle date: 0
+[INFO] 2025-05-10T21:14:33.810Z - Checking possible settlement fields:
+[INFO] 2025-05-10T21:14:33.810Z -   settled: false (type: boolean)
+[INFO] 2025-05-10T21:14:33.810Z -   settle_date: 0 (type: string)
+[INFO] 2025-05-10T21:14:33.810Z - Settlement detection result: false
+[INFO] 2025-05-10T21:14:33.811Z - Final parsed invoice: {"memo":"","r_hash":"2c2874b2b1f2f7c93e21cc48f377549365b1f4fc51ab6e8c0054d7fd1012e756","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"2c2874b2b1f2f7c93e21cc48f377549365b1f4fc51ab6e8c0054d7fd1012e756"}
+[INFO] 2025-05-10T21:14:33.811Z - ------ END INVOICE DEBUG ------
+[INFO] 2025-05-10T21:14:33.811Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:14:33.811Z - ------ DETAILED INVOICE DEBUG ------
+[INFO] 2025-05-10T21:14:33.812Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-10T21:14:33.812Z - Raw settled value: false (type: boolean)
+[INFO] 2025-05-10T21:14:33.812Z - Creation date: 0
+[INFO] 2025-05-10T21:14:33.812Z - Settle date: 0
+[INFO] 2025-05-10T21:14:33.812Z - Checking possible settlement fields:
+[INFO] 2025-05-10T21:14:33.812Z -   settled: false (type: boolean)
+[INFO] 2025-05-10T21:14:33.812Z -   settle_date: 0 (type: string)
+[INFO] 2025-05-10T21:14:33.812Z - Settlement detection result: false
+[INFO] 2025-05-10T21:14:33.812Z - Final parsed invoice: {"memo":"","r_hash":"2c2874b2b1f2f7c93e21cc48f377549365b1f4fc51ab6e8c0054d7fd1012e756","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"2c2874b2b1f2f7c93e21cc48f377549365b1f4fc51ab6e8c0054d7fd1012e756"}
+[INFO] 2025-05-10T21:14:33.812Z - ------ END INVOICE DEBUG ------
+[INFO] 2025-05-10T21:14:33.812Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:15:35.030Z - ------ DETAILED INVOICE DEBUG ------
+[INFO] 2025-05-10T21:15:35.031Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-10T21:15:35.031Z - Raw settled value: false (type: boolean)
+[INFO] 2025-05-10T21:15:35.031Z - Creation date: 0
+[INFO] 2025-05-10T21:15:35.032Z - Settle date: 0
+[INFO] 2025-05-10T21:15:35.033Z - Checking possible settlement fields:
+[INFO] 2025-05-10T21:15:35.033Z -   settled: false (type: boolean)
+[INFO] 2025-05-10T21:15:35.034Z -   settle_date: 0 (type: string)
+[INFO] 2025-05-10T21:15:35.034Z - Settlement detection result: false
+[INFO] 2025-05-10T21:15:35.034Z - Final parsed invoice: {"memo":"","r_hash":"22dee6e47d1282e5bbb75bd89f41756fa957e8fad768a99122a00716c81b482c","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"22dee6e47d1282e5bbb75bd89f41756fa957e8fad768a99122a00716c81b482c"}
+[INFO] 2025-05-10T21:15:35.035Z - ------ END INVOICE DEBUG ------
+[INFO] 2025-05-10T21:15:35.035Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:15:35.036Z - ------ DETAILED INVOICE DEBUG ------
+[INFO] 2025-05-10T21:15:35.036Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-10T21:15:35.037Z - Raw settled value: false (type: boolean)
+[INFO] 2025-05-10T21:15:35.037Z - Creation date: 0
+[INFO] 2025-05-10T21:15:35.037Z - Settle date: 0
+[INFO] 2025-05-10T21:15:35.037Z - Checking possible settlement fields:
+[INFO] 2025-05-10T21:15:35.037Z -   settled: false (type: boolean)
+[INFO] 2025-05-10T21:15:35.037Z -   settle_date: 0 (type: string)
+[INFO] 2025-05-10T21:15:35.037Z - Settlement detection result: false
+[INFO] 2025-05-10T21:15:35.037Z - Final parsed invoice: {"memo":"","r_hash":"22dee6e47d1282e5bbb75bd89f41756fa957e8fad768a99122a00716c81b482c","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"22dee6e47d1282e5bbb75bd89f41756fa957e8fad768a99122a00716c81b482c"}
+[INFO] 2025-05-10T21:15:35.037Z - ------ END INVOICE DEBUG ------
+[INFO] 2025-05-10T21:15:35.037Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:15:35.039Z - ------ DETAILED INVOICE DEBUG ------
+[INFO] 2025-05-10T21:15:35.039Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-10T21:15:35.040Z - Raw settled value: false (type: boolean)
+[INFO] 2025-05-10T21:15:35.040Z - Creation date: 0
+[INFO] 2025-05-10T21:15:35.040Z - Settle date: 0
+[INFO] 2025-05-10T21:15:35.040Z - Checking possible settlement fields:
+[INFO] 2025-05-10T21:15:35.041Z -   settled: false (type: boolean)
+[INFO] 2025-05-10T21:15:35.041Z -   settle_date: 0 (type: string)
+[INFO] 2025-05-10T21:15:35.041Z - Settlement detection result: false
+[INFO] 2025-05-10T21:15:35.041Z - Final parsed invoice: {"memo":"","r_hash":"22dee6e47d1282e5bbb75bd89f41756fa957e8fad768a99122a00716c81b482c","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"22dee6e47d1282e5bbb75bd89f41756fa957e8fad768a99122a00716c81b482c"}
+[INFO] 2025-05-10T21:15:35.042Z - ------ END INVOICE DEBUG ------
+[INFO] 2025-05-10T21:15:35.042Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:16:24.869Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-10T21:16:24.878Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-10T21:16:24.890Z - Starting backend server...
+[INFO] 2025-05-10T21:16:24.891Z - Proto file path: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:16:24.891Z - Proto file exists at: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:16:24.893Z - LND_HOST: localhost
+[INFO] 2025-05-10T21:16:24.893Z - LND_PORT: 10001
+[INFO] 2025-05-10T21:16:24.894Z - gRPC Target: localhost:10001
+[INFO] 2025-05-10T21:16:24.933Z - Loading proto file from: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:16:25.020Z - Successfully loaded gRPC package definition
+[INFO] 2025-05-10T21:16:25.022Z - Available services in proto:
+[INFO] 2025-05-10T21:16:25.054Z - Lightning client initialized successfully
+[INFO] 2025-05-10T21:16:25.054Z - Starting payment listening directly...
+[INFO] 2025-05-10T21:16:25.055Z - LND_HOST: localhost
+[INFO] 2025-05-10T21:16:25.055Z - LND_PORT: 10001
+[INFO] 2025-05-10T21:16:25.056Z - gRPC Target: localhost:10001
+[INFO] 2025-05-10T21:16:25.058Z - Loading proto file from: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:16:25.064Z - Successfully loaded gRPC package definition
+[INFO] 2025-05-10T21:16:25.065Z - Available services in proto:
+[INFO] 2025-05-10T21:16:25.073Z - Checking available methods on Lightning client
+[INFO] 2025-05-10T21:16:25.074Z - Available methods: ["GetInfo","getInfo","SubscribeInvoices","subscribeInvoices"]
+[INFO] 2025-05-10T21:16:25.075Z - Using subscribeInvoices method to listen for Lightning payment events...
+[INFO] 2025-05-10T21:16:25.090Z - Successfully created invoice subscription
+[INFO] 2025-05-10T21:16:25.131Z - Backend server is running on port 3000
+[INFO] 2025-05-10T21:16:32.720Z - Received raw invoice data: {"memo":"","r_preimage":{"type":"Buffer","data":[]},"r_hash":{"type":"Buffer","data":[248,23,0,116,136,1,236,236,100,7,36,59,236,161,63,127,92,44,92,98,164,175,208,130,6,6,222,155,211,73,60,232]},"value":"�B7�N�U�̴e\\)^ר�z��u�\u0010��\u0005\u001dN�GG{","value_msat":"8����\u0006J�\u0002lnbcrt10m1p5pls3spp5e9pr0w2we32emn95v4wzjhkh4zrh4swjwkcpp79tq5w5ap68gaasdqqcqzzsxqyz5vqsp5cvxshrcll5jl2dxz5f9hfmgk36k5hc8xqpahhjdgm2e82z7ld8ds9qxpqysgq7k5av7f3w9lmjkxaek6rl5afan0kv4m6nfysrzsra8wpyzxf3u7xc9c0dctcnj02kwnluxemd6mra0az6pz6sfy3a9zvzwr5gcgz9xcqfgsqpaX��\u0005hP�\u0001\u0012�\u0001����\u0003�\u0001\u001b\b\u0011\u0012\u0017\u0012\u0013multi-path-payments \u0001�\u0001\u0013\b\b\u0012\u000f\u0012\ttlv-onion\u0018\u0001 \u0001�\u0001\u0016\b\u0019\u0012\u0012\u0012\u000eroute-blinding \u0001�\u0001\u0016\b\u000e\u0012\u0012\u0012\fpayment-addr\u0018\u0001 \u0001�\u0001 �\r\u000b�\u001f�%�4¢Kt�\u0016��K��\u0000{{ɨڲu\u000b�i�","settled":false,"creation_date":"0","settle_date":"0","payment_request":"","description_hash":"","expiry":"0","fallback_addr":"","cltv_expiry":"0","amt_paid_sat":"","amt_paid_msat":""}
+[INFO] 2025-05-10T21:16:32.722Z - Parsed invoice data: {"memo":"","r_hash":"f81700748801ecec6407243beca13f7f5c2c5c62a4afd0820606de9bd3493ce8","value_sat":0,"value_msat":null,"settled":false,"creation_date":"0","settle_date":"0","payment_request":"","payment_hash":"f81700748801ecec6407243beca13f7f5c2c5c62a4afd0820606de9bd3493ce8"}
+[INFO] 2025-05-10T21:16:32.722Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:17:43.553Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-10T21:17:43.562Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-10T21:17:43.591Z - Starting backend server...
+[INFO] 2025-05-10T21:17:43.592Z - Proto file path: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:17:43.594Z - Proto file exists at: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:17:43.597Z - LND_HOST: localhost
+[INFO] 2025-05-10T21:17:43.598Z - LND_PORT: 10001
+[INFO] 2025-05-10T21:17:43.599Z - gRPC Target: localhost:10001
+[INFO] 2025-05-10T21:17:43.651Z - Loading proto file from: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:17:43.776Z - Successfully loaded gRPC package definition
+[INFO] 2025-05-10T21:17:43.779Z - Available services in proto:
+[INFO] 2025-05-10T21:17:43.848Z - Lightning client initialized successfully
+[INFO] 2025-05-10T21:17:43.848Z - Starting payment listening directly...
+[INFO] 2025-05-10T21:17:43.851Z - LND_HOST: localhost
+[INFO] 2025-05-10T21:17:43.852Z - LND_PORT: 10001
+[INFO] 2025-05-10T21:17:43.852Z - gRPC Target: localhost:10001
+[INFO] 2025-05-10T21:17:43.857Z - Loading proto file from: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:17:43.872Z - Successfully loaded gRPC package definition
+[INFO] 2025-05-10T21:17:43.874Z - Available services in proto:
+[INFO] 2025-05-10T21:17:43.888Z - Checking available methods on Lightning client
+[INFO] 2025-05-10T21:17:43.890Z - Available methods: ["GetInfo","getInfo","SubscribeInvoices","subscribeInvoices"]
+[INFO] 2025-05-10T21:17:43.890Z - Using subscribeInvoices method to listen for Lightning payment events...
+[INFO] 2025-05-10T21:17:43.932Z - Successfully created invoice subscription
+[INFO] 2025-05-10T21:17:43.988Z - Backend server is running on port 3000
+[INFO] 2025-05-10T21:18:01.608Z - Received raw invoice data: {"memo":"","r_preimage":{"type":"Buffer","data":[]},"r_hash":{"type":"Buffer","data":[83,8,181,7,97,90,132,183,216,235,181,122,251,26,151,74,20,53,131,164,244,91,88,52,171,12,32,100,50,30,46,116]},"value":"\u000fп\\Ɂ\u0006?I�%��g��s�Jc\u001e�\u001b��i\\˰9\u0006\"","value_msat":"8����\u0006J�\u0002lnbcrt10m1p5pls5fpp5plgt7hxfsyrr7j07ykxdgeawm9ee7jnrrm2phyy8d9wvhvpeqc3qdqqcqzzsxqyz5vqsp57pzzrdqrnz66nsgslrwfw22nas0zzhd98da499jw5xgfl08tcjpq9qxpqysgq2p5jznnfrzw2795gqfgyvq3ukr4z0p8w45r5pqx3srcdk3u9hyay4r75r25dh83c3r2dpkjjusztdw2pj09cu0znyq3l409r8pv24ggpfenajdX��\u0005hP�\u0001\u0013�\u0001����\u0003�\u0001\u0013\b\b\u0012\u000f\u0012\ttlv-onion\u0018\u0001 \u0001�\u0001\u0016\b\u000e\u0012\u0012\u0012\fpayment-addr\u0018\u0001 \u0001�\u0001\u0016\b\u0019\u0012\u0012\u0012\u000eroute-blinding \u0001�\u0001\u001b\b\u0011\u0012\u0017\u0012\u0013multi-path-payments \u0001�\u0001 �D!�\u0003����\u0010�ܗ)S�\u001e!]�;{R�N�����Ă","settled":false,"creation_date":"0","settle_date":"0","payment_request":"","description_hash":"","expiry":"0","fallback_addr":"","cltv_expiry":"0","amt_paid_sat":"","amt_paid_msat":""}
+[INFO] 2025-05-10T21:18:01.610Z - Parsed invoice data: {"memo":"","r_hash":"5308b507615a84b7d8ebb57afb1a974a143583a4f45b5834ab0c2064321e2e74","value_sat":0,"value_msat":null,"settled":false,"creation_date":"0","settle_date":"0","payment_request":"","payment_hash":"5308b507615a84b7d8ebb57afb1a974a143583a4f45b5834ab0c2064321e2e74"}
+[INFO] 2025-05-10T21:18:01.611Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:22:26.428Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-10T21:22:26.448Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-10T21:22:26.462Z - Starting backend server...
+[INFO] 2025-05-10T21:22:26.462Z - Proto file path: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:22:26.463Z - Proto file exists at: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:22:26.465Z - LND_HOST: localhost
+[INFO] 2025-05-10T21:22:26.466Z - LND_PORT: 10001
+[INFO] 2025-05-10T21:22:26.466Z - gRPC Target: localhost:10001
+[INFO] 2025-05-10T21:22:26.504Z - Loading proto file from: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:22:26.567Z - Successfully loaded gRPC package definition
+[INFO] 2025-05-10T21:22:26.567Z - Available services in proto:
+[INFO] 2025-05-10T21:22:26.588Z - Lightning client initialized successfully
+[INFO] 2025-05-10T21:22:26.589Z - Starting payment listening directly...
+[INFO] 2025-05-10T21:22:26.590Z - LND_HOST: localhost
+[INFO] 2025-05-10T21:22:26.590Z - LND_PORT: 10001
+[INFO] 2025-05-10T21:22:26.590Z - gRPC Target: localhost:10001
+[INFO] 2025-05-10T21:22:26.592Z - Loading proto file from: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:22:26.599Z - Successfully loaded gRPC package definition
+[INFO] 2025-05-10T21:22:26.599Z - Available services in proto:
+[INFO] 2025-05-10T21:22:26.605Z - Checking available methods on Lightning client
+[INFO] 2025-05-10T21:22:26.606Z - Available methods: ["GetInfo","getInfo","SubscribeInvoices","subscribeInvoices"]
+[INFO] 2025-05-10T21:22:26.606Z - Using subscribeInvoices method to listen for Lightning payment events...
+[INFO] 2025-05-10T21:22:26.615Z - Successfully created invoice subscription
+[INFO] 2025-05-10T21:22:26.632Z - Backend server is running on port 3000
+[INFO] 2025-05-10T21:22:50.511Z - Received raw invoice data: {"memo":"","r_preimage":{"type":"Buffer","data":[]},"r_hash":{"type":"Buffer","data":[166,178,146,234,70,136,165,115,139,105,147,239,221,181,252,234,20,85,82,61,250,63,190,161,1,135,47,136,30,34,32,117]},"value":"\f�ǩ�P&��)T�������B\u0019D�\u000butW4\"","value_msat":"8����\u0006J�\u0002lnbcrt10m1p5plsa2pp5pnsv020p2qntfuff2jh0ltrll0ldn32zr9zwyzl0s7482azhxs3qdqqcqzzsxqyz5vqsp5neznw7zl3uwkd3r0fk2sft0eu9mqkjl0c4q648v8035tamwj3ycq9qxpqysgqct4nz30qldmdw8666vld7q2nha6vty3txq9cmqyc95uanarj5eyqws69k456aa2l3tznslk9fzpzkmga8xk8efsncaye8r25758hpgqp279x5yX��\u0005hP�\u0001\u0014�\u0001����\u0003�\u0001\u0016\b\u0019\u0012\u0012\u0012\u000eroute-blinding \u0001�\u0001\u001b\b\u0011\u0012\u0017\u0012\u0013multi-path-payments \u0001�\u0001\u0013\b\b\u0012\u000f\u0012\ttlv-onion\u0018\u0001 \u0001�\u0001\u0016\b\u000e\u0012\u0012\u0012\fpayment-addr\u0018\u0001 \u0001�\u0001 �E7x_�\u001df�oM�\u0004���v\u000bK��A���|h��҉0","settled":false,"creation_date":"0","settle_date":"0","payment_request":"","description_hash":"","expiry":"0","fallback_addr":"","cltv_expiry":"0","amt_paid_sat":"","amt_paid_msat":""}
+[INFO] 2025-05-10T21:22:50.513Z - Parsed invoice data: {"memo":"","r_hash":"a6b292ea4688a5738b6993efddb5fcea1455523dfa3fbea101872f881e222075","value_sat":0,"value_msat":null,"settled":false,"creation_date":"0","settle_date":"0","payment_request":"","payment_hash":"a6b292ea4688a5738b6993efddb5fcea1455523dfa3fbea101872f881e222075"}
+[INFO] 2025-05-10T21:22:50.514Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:23:00.178Z - Received raw invoice data: {"memo":"","r_preimage":{"type":"Buffer","data":[]},"r_hash":{"type":"Buffer","data":[166,178,146,234,70,136,165,115,139,105,147,239,221,181,252,234,20,85,82,61,250,63,190,161,1,135,47,136,30,34,32,117]},"value":"\f�ǩ�P&��)T�������B\u0019D�\u000butW4\"","value_msat":"0\u00018����\u0006@����\u0006J�\u0002lnbcrt10m1p5plsa2pp5pnsv020p2qntfuff2jh0ltrll0ldn32zr9zwyzl0s7482azhxs3qdqqcqzzsxqyz5vqsp5neznw7zl3uwkd3r0fk2sft0eu9mqkjl0c4q648v8035tamwj3ycq9qxpqysgqct4nz30qldmdw8666vld7q2nha6vty3txq9cmqyc95uanarj5eyqws69k456aa2l3tznslk9fzpzkmga8xk8efsncaye8r25758hpgqp279x5yX��\u0005hP�\u0001\u0014�\u0001\u000b�\u0001����\u0003�\u0001��=�\u0001����\u0003�\u0001\u0001�\u0001(\b������\u001f\u0018����\u0003 �\u0001(����\u00060����\u00068�\u0001@\u0001P����\u0003�\u0001����\u0003�\u0001\u0016\b\u0019\u0012\u0012\u0012\u000eroute-blinding \u0001�\u0001\u0013\b\b\u0012\u000f\u0012\ttlv-onion\u0018\u0001 \u0001�\u0001\u0016\b\u000e\u0012\u0012\u0012\fpayment-addr\u0018\u0001 \u0001�\u0001\u001b\b\u0011\u0012\u0017\u0012\u0013multi-path-payments \u0001�\u0001 �E7x_�\u001df�oM�\u0004���v\u000bK��A���|h��҉0","settled":false,"creation_date":"0","settle_date":"0","payment_request":"","description_hash":"","expiry":"0","fallback_addr":"","cltv_expiry":"0","amt_paid_sat":"","amt_paid_msat":""}
+[INFO] 2025-05-10T21:23:00.179Z - Parsed invoice data: {"memo":"","r_hash":"a6b292ea4688a5738b6993efddb5fcea1455523dfa3fbea101872f881e222075","value_sat":0,"value_msat":null,"settled":false,"creation_date":"0","settle_date":"0","payment_request":"","payment_hash":"a6b292ea4688a5738b6993efddb5fcea1455523dfa3fbea101872f881e222075"}
+[INFO] 2025-05-10T21:23:00.180Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:23:49.345Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-10T21:23:49.349Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-10T21:23:49.356Z - Starting backend server...
+[INFO] 2025-05-10T21:23:49.356Z - Proto file path: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:23:49.356Z - Proto file exists at: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:23:49.357Z - LND_HOST: localhost
+[INFO] 2025-05-10T21:23:49.358Z - LND_PORT: 10001
+[INFO] 2025-05-10T21:23:49.358Z - gRPC Target: localhost:10001
+[INFO] 2025-05-10T21:23:49.385Z - Loading proto file from: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:23:49.463Z - Successfully loaded gRPC package definition
+[INFO] 2025-05-10T21:23:49.464Z - Available services in proto:
+[INFO] 2025-05-10T21:23:49.500Z - Lightning client initialized successfully
+[INFO] 2025-05-10T21:23:49.501Z - Starting payment listening directly...
+[INFO] 2025-05-10T21:23:49.501Z - LND_HOST: localhost
+[INFO] 2025-05-10T21:23:49.502Z - LND_PORT: 10001
+[INFO] 2025-05-10T21:23:49.502Z - gRPC Target: localhost:10001
+[INFO] 2025-05-10T21:23:49.504Z - Loading proto file from: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:23:49.513Z - Successfully loaded gRPC package definition
+[INFO] 2025-05-10T21:23:49.513Z - Available services in proto:
+[INFO] 2025-05-10T21:23:49.522Z - Checking available methods on Lightning client
+[INFO] 2025-05-10T21:23:49.524Z - Available methods: ["GetInfo","getInfo","SubscribeInvoices","subscribeInvoices"]
+[INFO] 2025-05-10T21:23:49.524Z - Using subscribeInvoices method to listen for Lightning payment events...
+[INFO] 2025-05-10T21:23:49.540Z - Successfully created invoice subscription
+[INFO] 2025-05-10T21:23:49.575Z - Backend server is running on port 3000
+[INFO] 2025-05-10T21:23:56.778Z - ------ DETAILED INVOICE DEBUG ------
+[INFO] 2025-05-10T21:23:56.778Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-10T21:23:56.778Z - Raw settled value: false (type: boolean)
+[INFO] 2025-05-10T21:23:56.779Z - Creation date: 0
+[INFO] 2025-05-10T21:23:56.779Z - Settle date: 0
+[INFO] 2025-05-10T21:23:56.779Z - Checking possible settlement fields:
+[INFO] 2025-05-10T21:23:56.779Z -   settled: false (type: boolean)
+[INFO] 2025-05-10T21:23:56.779Z -   settle_date: 0 (type: string)
+[INFO] 2025-05-10T21:23:56.779Z - Settlement detection result: false
+[INFO] 2025-05-10T21:23:56.779Z - Final parsed invoice: {"memo":"","r_hash":"945f7727c7743c59916e08f497937386f8964317a27317e2105257cfa624053e","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"945f7727c7743c59916e08f497937386f8964317a27317e2105257cfa624053e"}
+[INFO] 2025-05-10T21:23:56.779Z - ------ END INVOICE DEBUG ------
+[INFO] 2025-05-10T21:23:56.780Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:24:07.539Z - ------ DETAILED INVOICE DEBUG ------
+[INFO] 2025-05-10T21:24:07.539Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-10T21:24:07.540Z - Raw settled value: false (type: boolean)
+[INFO] 2025-05-10T21:24:07.540Z - Creation date: 0
+[INFO] 2025-05-10T21:24:07.541Z - Settle date: 0
+[INFO] 2025-05-10T21:24:07.541Z - Checking possible settlement fields:
+[INFO] 2025-05-10T21:24:07.541Z -   settled: false (type: boolean)
+[INFO] 2025-05-10T21:24:07.541Z -   settle_date: 0 (type: string)
+[INFO] 2025-05-10T21:24:07.542Z - Settlement detection result: false
+[INFO] 2025-05-10T21:24:07.542Z - Final parsed invoice: {"memo":"","r_hash":"945f7727c7743c59916e08f497937386f8964317a27317e2105257cfa624053e","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"945f7727c7743c59916e08f497937386f8964317a27317e2105257cfa624053e"}
+[INFO] 2025-05-10T21:24:07.542Z - ------ END INVOICE DEBUG ------
+[INFO] 2025-05-10T21:24:07.543Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:25:32.890Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-10T21:25:32.894Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-10T21:25:32.901Z - Starting backend server...
+[INFO] 2025-05-10T21:25:32.902Z - Proto file path: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:25:32.902Z - Proto file exists at: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:25:32.904Z - LND_HOST: localhost
+[INFO] 2025-05-10T21:25:32.904Z - LND_PORT: 10001
+[INFO] 2025-05-10T21:25:32.904Z - gRPC Target: localhost:10001
+[INFO] 2025-05-10T21:25:32.932Z - Loading proto file from: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:25:33.036Z - Successfully loaded gRPC package definition
+[INFO] 2025-05-10T21:25:33.037Z - Available services in proto:
+[INFO] 2025-05-10T21:25:33.063Z - Lightning client initialized successfully
+[INFO] 2025-05-10T21:25:33.064Z - Starting payment listening directly...
+[INFO] 2025-05-10T21:25:33.065Z - LND_HOST: localhost
+[INFO] 2025-05-10T21:25:33.065Z - LND_PORT: 10001
+[INFO] 2025-05-10T21:25:33.065Z - gRPC Target: localhost:10001
+[INFO] 2025-05-10T21:25:33.068Z - Loading proto file from: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:25:33.075Z - Successfully loaded gRPC package definition
+[INFO] 2025-05-10T21:25:33.076Z - Available services in proto:
+[INFO] 2025-05-10T21:25:33.084Z - Checking available methods on Lightning client
+[INFO] 2025-05-10T21:25:33.086Z - Available methods: ["GetInfo","getInfo","SubscribeInvoices","subscribeInvoices"]
+[INFO] 2025-05-10T21:25:33.086Z - Using subscribeInvoices method to listen for Lightning payment events...
+[INFO] 2025-05-10T21:25:33.098Z - Successfully created invoice subscription
+[INFO] 2025-05-10T21:25:33.131Z - Backend server is running on port 3000
+[INFO] 2025-05-10T21:25:39.781Z - Received raw invoice data: {"memo":"","r_preimage":{"type":"Buffer","data":[]},"r_hash":{"type":"Buffer","data":[232,200,153,203,123,16,164,197,204,78,191,24,245,142,210,71,81,16,71,43,172,104,231,195,93,41,163,156,138,112,100,143]},"value":"�\u0002)@�և�W\u0014G�7\u0014\b{\u000f;���V�\bq\u000bKRT�7\u001a","value_msat":"8ӈ��\u0006J�\u0002lnbcrt10m1p5pl3znpp5kspzjsxu66rm64c5gl2rw9qg0v8nhwxscftvzzr3pd94y4y2xudqdqqcqzzsxqyz5vqsp5z770c99ah6dm3zwmqkw87fsakfjvweapcq305p03907fnql570vs9qxpqysgqxs7rh6njfnq0rh5hze9avas824uelym77dsctxeulyrcvzqldtkxhaxdde9227ad2gpld7y93dkwankz0rqyhwrmldwmgkwf6a94fdsq3mrkvnX��\u0005hP�\u0001\u0016�\u0001����\u0003�\u0001\u0013\b\b\u0012\u000f\u0012\ttlv-onion\u0018\u0001 \u0001�\u0001\u0016\b\u000e\u0012\u0012\u0012\fpayment-addr\u0018\u0001 \u0001�\u0001\u0016\b\u0019\u0012\u0012\u0012\u000eroute-blinding \u0001�\u0001\u001b\b\u0011\u0012\u0017\u0012\u0013multi-path-payments \u0001�\u0001 \u0017��\u0014������\u0005�&\u001d�d�g��\"�\u0005�+������","settled":false,"creation_date":"0","settle_date":"0","payment_request":"","description_hash":"","expiry":"0","fallback_addr":"","cltv_expiry":"0","amt_paid_sat":"","amt_paid_msat":""}
+[INFO] 2025-05-10T21:25:39.783Z - ------ DETAILED INVOICE DEBUG ------
+[INFO] 2025-05-10T21:25:39.783Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-10T21:25:39.783Z - Raw settled value: false (type: boolean)
+[INFO] 2025-05-10T21:25:39.783Z - Creation date: 0
+[INFO] 2025-05-10T21:25:39.783Z - Settle date: 0
+[INFO] 2025-05-10T21:25:39.783Z - Checking possible settlement fields:
+[INFO] 2025-05-10T21:25:39.784Z -   settled: false (type: boolean)
+[INFO] 2025-05-10T21:25:39.784Z -   settle_date: 0 (type: string)
+[INFO] 2025-05-10T21:25:39.785Z - Settlement detection result: false
+[INFO] 2025-05-10T21:25:39.785Z - Final parsed invoice: {"memo":"","r_hash":"e8c899cb7b10a4c5cc4ebf18f58ed2475110472bac68e7c35d29a39c8a70648f","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"e8c899cb7b10a4c5cc4ebf18f58ed2475110472bac68e7c35d29a39c8a70648f"}
+[INFO] 2025-05-10T21:25:39.785Z - ------ END INVOICE DEBUG ------
+[INFO] 2025-05-10T21:25:39.785Z - Parsed invoice data: {"memo":"","r_hash":"e8c899cb7b10a4c5cc4ebf18f58ed2475110472bac68e7c35d29a39c8a70648f","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"e8c899cb7b10a4c5cc4ebf18f58ed2475110472bac68e7c35d29a39c8a70648f"}
+[INFO] 2025-05-10T21:25:39.785Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:26:05.214Z - Received raw invoice data: {"memo":"","r_preimage":{"type":"Buffer","data":[]},"r_hash":{"type":"Buffer","data":[232,200,153,203,123,16,164,197,204,78,191,24,245,142,210,71,81,16,71,43,172,104,231,195,93,41,163,156,138,112,100,143]},"value":"�\u0002)@�և�W\u0014G�7\u0014\b{\u000f;���V�\bq\u000bKRT�7\u001a","value_msat":"0\u00018ӈ��\u0006@���\u0006J�\u0002lnbcrt10m1p5pl3znpp5kspzjsxu66rm64c5gl2rw9qg0v8nhwxscftvzzr3pd94y4y2xudqdqqcqzzsxqyz5vqsp5z770c99ah6dm3zwmqkw87fsakfjvweapcq305p03907fnql570vs9qxpqysgqxs7rh6njfnq0rh5hze9avas824uelym77dsctxeulyrcvzqldtkxhaxdde9227ad2gpld7y93dkwankz0rqyhwrmldwmgkwf6a94fdsq3mrkvnX��\u0005hP�\u0001\u0016�\u0001\r�\u0001����\u0003�\u0001��=�\u0001����\u0003�\u0001\u0001�\u0001*\b������\u001f\u0010\u0002\u0018����\u0003 �\u0001(���\u00060���\u00068�\u0001@\u0001P����\u0003�\u0001����\u0003�\u0001\u0016\b\u0019\u0012\u0012\u0012\u000eroute-blinding \u0001�\u0001\u0013\b\b\u0012\u000f\u0012\ttlv-onion\u0018\u0001 \u0001�\u0001\u0016\b\u000e\u0012\u0012\u0012\fpayment-addr\u0018\u0001 \u0001�\u0001\u001b\b\u0011\u0012\u0017\u0012\u0013multi-path-payments \u0001�\u0001 \u0017��\u0014������\u0005�&\u001d�d�g��\"�\u0005�+������","settled":false,"creation_date":"0","settle_date":"0","payment_request":"","description_hash":"","expiry":"0","fallback_addr":"","cltv_expiry":"0","amt_paid_sat":"","amt_paid_msat":""}
+[INFO] 2025-05-10T21:26:05.216Z - ------ DETAILED INVOICE DEBUG ------
+[INFO] 2025-05-10T21:26:05.216Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-10T21:26:05.217Z - Raw settled value: false (type: boolean)
+[INFO] 2025-05-10T21:26:05.217Z - Creation date: 0
+[INFO] 2025-05-10T21:26:05.217Z - Settle date: 0
+[INFO] 2025-05-10T21:26:05.218Z - Checking possible settlement fields:
+[INFO] 2025-05-10T21:26:05.218Z -   settled: false (type: boolean)
+[INFO] 2025-05-10T21:26:05.219Z -   settle_date: 0 (type: string)
+[INFO] 2025-05-10T21:26:05.220Z - Settlement detection result: false
+[INFO] 2025-05-10T21:26:05.221Z - Final parsed invoice: {"memo":"","r_hash":"e8c899cb7b10a4c5cc4ebf18f58ed2475110472bac68e7c35d29a39c8a70648f","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"e8c899cb7b10a4c5cc4ebf18f58ed2475110472bac68e7c35d29a39c8a70648f"}
+[INFO] 2025-05-10T21:26:05.221Z - ------ END INVOICE DEBUG ------
+[INFO] 2025-05-10T21:26:05.222Z - Parsed invoice data: {"memo":"","r_hash":"e8c899cb7b10a4c5cc4ebf18f58ed2475110472bac68e7c35d29a39c8a70648f","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"e8c899cb7b10a4c5cc4ebf18f58ed2475110472bac68e7c35d29a39c8a70648f"}
+[INFO] 2025-05-10T21:26:05.222Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:27:36.297Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-10T21:27:36.307Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-10T21:27:36.322Z - Starting backend server...
+[INFO] 2025-05-10T21:27:36.322Z - Proto file path: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:27:36.322Z - Proto file exists at: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:27:36.324Z - LND_HOST: localhost
+[INFO] 2025-05-10T21:27:36.324Z - LND_PORT: 10001
+[INFO] 2025-05-10T21:27:36.324Z - gRPC Target: localhost:10001
+[INFO] 2025-05-10T21:27:36.360Z - Loading proto file from: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:27:36.433Z - Successfully loaded gRPC package definition
+[INFO] 2025-05-10T21:27:36.433Z - Available services in proto:
+[INFO] 2025-05-10T21:27:36.453Z - Lightning client initialized successfully
+[INFO] 2025-05-10T21:27:36.453Z - Starting payment listening directly...
+[INFO] 2025-05-10T21:27:36.454Z - LND_HOST: localhost
+[INFO] 2025-05-10T21:27:36.454Z - LND_PORT: 10001
+[INFO] 2025-05-10T21:27:36.454Z - gRPC Target: localhost:10001
+[INFO] 2025-05-10T21:27:36.456Z - Loading proto file from: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:27:36.460Z - Successfully loaded gRPC package definition
+[INFO] 2025-05-10T21:27:36.460Z - Available services in proto:
+[INFO] 2025-05-10T21:27:36.465Z - Checking available methods on Lightning client
+[INFO] 2025-05-10T21:27:36.466Z - Available methods: ["GetInfo","getInfo","SubscribeInvoices","subscribeInvoices"]
+[INFO] 2025-05-10T21:27:36.467Z - Using subscribeInvoices method to listen for Lightning payment events...
+[INFO] 2025-05-10T21:27:36.478Z - Successfully created invoice subscription
+[INFO] 2025-05-10T21:27:36.509Z - Backend server is running on port 3000
+[INFO] 2025-05-10T21:27:44.386Z - Received raw invoice data: {"memo":"","r_preimage":{"type":"Buffer","data":[]},"r_hash":{"type":"Buffer","data":[225,122,84,68,242,141,40,128,187,121,51,27,79,134,212,14,135,120,44,183,68,82,151,170,171,161,249,230,171,248,247,252]},"value":"�Џ6�{\u0015Wx��\f4����{�h\f7����H�\u0016���","value_msat":"8Љ��\u0006J�\u0002lnbcrt10m1p5pl3xspp5s8gg7d5k0v24w794c5xrfhkumtehhnrgpsmlnfkhceydu94x4w2sdqqcqzzsxqyz5vqsp5qy58syq9jjnrllus7fuys8ydc7a3944ne0qzq50dt62j2pf74vdq9qxpqysgqyfdnkd32qpn70dpqs6j3sla5ld40h9x3gprcn0xw6fhx5u8wcafqccgpaw8844nj63xh6mpas9q4exvavqq4d8u2p8lh9qf4n6eedncpwujglqX��\u0005hP�\u0001\u0017�\u0001����\u0003�\u0001\u0013\b\b\u0012\u000f\u0012\ttlv-onion\u0018\u0001 \u0001�\u0001\u0016\b\u000e\u0012\u0012\u0012\fpayment-addr\u0018\u0001 \u0001�\u0001\u0016\b\u0019\u0012\u0012\u0012\u000eroute-blinding \u0001�\u0001\u001b\b\u0011\u0012\u0017\u0012\u0013multi-path-payments \u0001�\u0001 \u0001(x\u0010\u0005��?���xH\u001c�ǻ\u0012ֳ�� Q�^�%\u0005>�\u001a","settled":false,"creation_date":"0","settle_date":"0","payment_request":"","description_hash":"","expiry":"0","fallback_addr":"","cltv_expiry":"0","amt_paid_sat":"","amt_paid_msat":""}
+[INFO] 2025-05-10T21:27:44.388Z - ------ DETAILED INVOICE DEBUG ------
+[INFO] 2025-05-10T21:27:44.389Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-10T21:27:44.389Z - Raw settled value: false (type: boolean)
+[INFO] 2025-05-10T21:27:44.389Z - Creation date: 0
+[INFO] 2025-05-10T21:27:44.389Z - Settle date: 0
+[INFO] 2025-05-10T21:27:44.389Z - Checking possible settlement fields:
+[INFO] 2025-05-10T21:27:44.389Z -   settled: false (type: boolean)
+[INFO] 2025-05-10T21:27:44.389Z -   settle_date: 0 (type: string)
+[INFO] 2025-05-10T21:27:44.389Z - Settlement detection result: false
+[INFO] 2025-05-10T21:27:44.390Z - Final parsed invoice: {"memo":"","r_hash":"e17a5444f28d2880bb79331b4f86d40e87782cb7445297aaaba1f9e6abf8f7fc","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"e17a5444f28d2880bb79331b4f86d40e87782cb7445297aaaba1f9e6abf8f7fc"}
+[INFO] 2025-05-10T21:27:44.390Z - ------ END INVOICE DEBUG ------
+[INFO] 2025-05-10T21:27:44.390Z - Parsed invoice data: {"memo":"","r_hash":"e17a5444f28d2880bb79331b4f86d40e87782cb7445297aaaba1f9e6abf8f7fc","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"e17a5444f28d2880bb79331b4f86d40e87782cb7445297aaaba1f9e6abf8f7fc"}
+[INFO] 2025-05-10T21:27:44.390Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:27:56.266Z - Received raw invoice data: {"memo":"","r_preimage":{"type":"Buffer","data":[]},"r_hash":{"type":"Buffer","data":[225,122,84,68,242,141,40,128,187,121,51,27,79,134,212,14,135,120,44,183,68,82,151,170,171,161,249,230,171,248,247,252]},"value":"�Џ6�{\u0015Wx��\f4����{�h\f7����H�\u0016���","value_msat":"0\u00018Љ��\u0006@܉��\u0006J�\u0002lnbcrt10m1p5pl3xspp5s8gg7d5k0v24w794c5xrfhkumtehhnrgpsmlnfkhceydu94x4w2sdqqcqzzsxqyz5vqsp5qy58syq9jjnrllus7fuys8ydc7a3944ne0qzq50dt62j2pf74vdq9qxpqysgqyfdnkd32qpn70dpqs6j3sla5ld40h9x3gprcn0xw6fhx5u8wcafqccgpaw8844nj63xh6mpas9q4exvavqq4d8u2p8lh9qf4n6eedncpwujglqX��\u0005hP�\u0001\u0017�\u0001\u000e�\u0001����\u0003�\u0001��=�\u0001����\u0003�\u0001\u0001�\u0001*\b������\u001f\u0010\u0003\u0018����\u0003 �\u0001(܉��\u00060܉��\u00068�\u0001@\u0001P����\u0003�\u0001����\u0003�\u0001\u0013\b\b\u0012\u000f\u0012\ttlv-onion\u0018\u0001 \u0001�\u0001\u0016\b\u000e\u0012\u0012\u0012\fpayment-addr\u0018\u0001 \u0001�\u0001\u001b\b\u0011\u0012\u0017\u0012\u0013multi-path-payments \u0001�\u0001\u0016\b\u0019\u0012\u0012\u0012\u000eroute-blinding \u0001�\u0001 \u0001(x\u0010\u0005��?���xH\u001c�ǻ\u0012ֳ�� Q�^�%\u0005>�\u001a","settled":false,"creation_date":"0","settle_date":"0","payment_request":"","description_hash":"","expiry":"0","fallback_addr":"","cltv_expiry":"0","amt_paid_sat":"","amt_paid_msat":""}
+[INFO] 2025-05-10T21:27:56.267Z - ------ DETAILED INVOICE DEBUG ------
+[INFO] 2025-05-10T21:27:56.267Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-10T21:27:56.267Z - Raw settled value: false (type: boolean)
+[INFO] 2025-05-10T21:27:56.267Z - Creation date: 0
+[INFO] 2025-05-10T21:27:56.268Z - Settle date: 0
+[INFO] 2025-05-10T21:27:56.268Z - Checking possible settlement fields:
+[INFO] 2025-05-10T21:27:56.268Z -   settled: false (type: boolean)
+[INFO] 2025-05-10T21:27:56.268Z -   settle_date: 0 (type: string)
+[INFO] 2025-05-10T21:27:56.268Z - Settlement detection result: false
+[INFO] 2025-05-10T21:27:56.268Z - Final parsed invoice: {"memo":"","r_hash":"e17a5444f28d2880bb79331b4f86d40e87782cb7445297aaaba1f9e6abf8f7fc","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"e17a5444f28d2880bb79331b4f86d40e87782cb7445297aaaba1f9e6abf8f7fc"}
+[INFO] 2025-05-10T21:27:56.268Z - ------ END INVOICE DEBUG ------
+[INFO] 2025-05-10T21:27:56.269Z - Parsed invoice data: {"memo":"","r_hash":"e17a5444f28d2880bb79331b4f86d40e87782cb7445297aaaba1f9e6abf8f7fc","value_sat":0,"value_msat":null,"creation_date":"0","settle_date":"0","payment_request":"","settled":false,"payment_hash":"e17a5444f28d2880bb79331b4f86d40e87782cb7445297aaaba1f9e6abf8f7fc"}
+[INFO] 2025-05-10T21:27:56.269Z - Invoice is not settled yet.
+[INFO] 2025-05-10T21:34:27.729Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-10T21:34:27.752Z - Server running on port 3000
+[INFO] 2025-05-10T21:34:28.754Z - Starting Lightning payment monitoring...
+[INFO] 2025-05-10T21:34:28.755Z - Initializing Lightning client...
+[INFO] 2025-05-10T21:34:28.755Z - Found proto file at: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:34:28.756Z - Using proto file: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-10T21:34:28.789Z - Using TLS cert from environment variable
+[INFO] 2025-05-10T21:34:28.820Z - Using macaroon from environment variable
+[INFO] 2025-05-10T21:34:28.822Z - Connecting to LND at localhost:10001
+[INFO] 2025-05-10T21:34:28.847Z - Lightning client initialized successfully
+[INFO] 2025-05-10T21:34:28.848Z - Starting Lightning payment monitoring...
+[INFO] 2025-05-10T21:34:28.848Z - Using subscribeInvoices method to monitor payments
+[INFO] 2025-05-10T21:34:28.860Z - Created invoice subscription with empty params
+[INFO] 2025-05-10T21:34:28.864Z - Lightning payment monitoring started successfully
+[INFO] 2025-05-10T21:34:39.964Z - Received invoice update
+[INFO] 2025-05-10T21:34:39.965Z - Processing invoice data
+[INFO] 2025-05-10T21:34:39.965Z - Invoice settled: false (boolean)
+[INFO] 2025-05-10T21:34:39.966Z - Invoice value: ����EI-�g�Q�3��u$�b���.��r� (string)
+[INFO] 2025-05-10T21:34:39.966Z - Invoice value_msat: 8���J�lnbcrt10m1p5pl3n0pp5583anhz9fyke2euc2x9n8u4jjm982fqa333tt9y3zgh0yxxrwthqdqqcqzzsxqyz5vqsp5ew4pexsy3fnpdczyu6rl404zwhm96cna4lcz8jjhz76ys9gryhms9qxpqysgqdwg579vm3j8z9czn932vpnqufw8jx4ztkf89etw3khr2vhencevnetjkwte2qum2c0an3gtnz36r07fxntsjyasedwuze5557fc9jtqqhq6qseX��hP�������	tlv-onion �payment-addr �route-blinding �multi-path-payments � ˪��f�D����u�]b}��#�W�H%� (string)
+[INFO] 2025-05-10T21:34:39.966Z - Invoice amt_paid_sat:  (string)
+[INFO] 2025-05-10T21:34:39.966Z - Invoice amt_paid_msat:  (string)
+[INFO] 2025-05-10T21:34:39.966Z - Invoice settle_date: 0 (string)
+[INFO] 2025-05-10T21:34:39.966Z - Invoice settlement status determined as: false
+[INFO] 2025-05-10T21:35:03.697Z - Received invoice update
+[INFO] 2025-05-10T21:35:03.698Z - Processing invoice data
+[INFO] 2025-05-10T21:35:03.699Z - Invoice settled: false (boolean)
+[INFO] 2025-05-10T21:35:03.699Z - Invoice value: ����EI-�g�Q�3��u$�b���.��r� (string)
+[INFO] 2025-05-10T21:35:03.699Z - Invoice value_msat: 08���@����J�lnbcrt10m1p5pl3n0pp5583anhz9fyke2euc2x9n8u4jjm982fqa333tt9y3zgh0yxxrwthqdqqcqzzsxqyz5vqsp5ew4pexsy3fnpdczyu6rl404zwhm96cna4lcz8jjhz76ys9gryhms9qxpqysgqdwg579vm3j8z9czn932vpnqufw8jx4ztkf89etw3khr2vhencevnetjkwte2qum2c0an3gtnz36r07fxntsjyasedwuze5557fc9jtqqhq6qseX��hP����������=�������*���������� �(����0����8�@P����������	tlv-onion �payment-addr �multi-path-payments �route-blinding � ˪��f�D����u�]b}��#�W�H%� (string)
+[INFO] 2025-05-10T21:35:03.699Z - Invoice amt_paid_sat:  (string)
+[INFO] 2025-05-10T21:35:03.700Z - Invoice amt_paid_msat:  (string)
+[INFO] 2025-05-10T21:35:03.701Z - Invoice settle_date: 0 (string)
+[INFO] 2025-05-10T21:35:03.701Z - Invoice settlement status determined as: false
+[INFO] 2025-05-11T14:30:19.629Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-11T14:30:19.665Z - Server running on port 3000
+[INFO] 2025-05-11T14:30:20.668Z - Starting Lightning payment monitoring...
+[INFO] 2025-05-11T14:30:20.669Z - Initializing Lightning client...
+[INFO] 2025-05-11T14:30:20.670Z - Found proto file at: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-11T14:30:20.670Z - Using proto file: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-11T14:30:20.718Z - Using TLS cert from environment variable
+[INFO] 2025-05-11T14:30:20.738Z - Using macaroon from environment variable
+[INFO] 2025-05-11T14:30:20.740Z - Connecting to LND at localhost:10001
+[INFO] 2025-05-11T14:30:20.765Z - Lightning client initialized successfully
+[INFO] 2025-05-11T14:30:20.766Z - Starting Lightning payment monitoring...
+[INFO] 2025-05-11T14:30:20.767Z - Using subscribeInvoices method to monitor payments
+[INFO] 2025-05-11T14:30:20.789Z - Created invoice subscription with empty params
+[INFO] 2025-05-11T14:30:20.794Z - Lightning payment monitoring started successfully
+[INFO] 2025-05-11T14:30:31.628Z - Received invoice update
+[INFO] 2025-05-11T14:30:31.629Z - Processing invoice data
+[INFO] 2025-05-11T14:30:31.629Z - Invoice settled: false (boolean)
+[INFO] 2025-05-11T14:30:31.629Z - Invoice value: ;�P��Q�;,WR=/����Q����Y�*j (string)
+[INFO] 2025-05-11T14:30:31.630Z - Invoice value_msat: 8���J�lnbcrt10m1p5zpdy8pp58029pncjepgs9afm93t4y0gd9upw4s99pn09rzvl37u9jp9j9f4qdqqcqzzsxqyz5vqsp5u8ggxwj3e5nzflt9ud0grgfnysk40e098508l7gl9y43xavrprtq9qxpqysgqstxlagfkk3h23l9k5kn9h0v76jn53ze3j0uafwhh6qfdnz7shep8tz60fal65m0jx6cp666p35qc6axn3s35hmk9nxmtgpq58l26t4cp4e2g8pX��hP�������payment-addr �route-blinding �multi-path-payments �	tlv-onion � �Ѓ:Q�&$�e�^��3$-W��=�)+u�� (string)
+[INFO] 2025-05-11T14:30:31.630Z - Invoice amt_paid_sat:  (string)
+[INFO] 2025-05-11T14:30:31.630Z - Invoice amt_paid_msat:  (string)
+[INFO] 2025-05-11T14:30:31.630Z - Invoice settle_date: 0 (string)
+[INFO] 2025-05-11T14:30:31.630Z - Invoice settlement status determined as: false
+[INFO] 2025-05-11T14:30:39.747Z - Received invoice update
+[INFO] 2025-05-11T14:30:39.748Z - Processing invoice data
+[INFO] 2025-05-11T14:30:39.749Z - Invoice settled: false (boolean)
+[INFO] 2025-05-11T14:30:39.750Z - Invoice value: ;�P��Q�;,WR=/����Q����Y�*j (string)
+[INFO] 2025-05-11T14:30:39.750Z - Invoice value_msat: 08���@���J�lnbcrt10m1p5zpdy8pp58029pncjepgs9afm93t4y0gd9upw4s99pn09rzvl37u9jp9j9f4qdqqcqzzsxqyz5vqsp5u8ggxwj3e5nzflt9ud0grgfnysk40e098508l7gl9y43xavrprtq9qxpqysgqstxlagfkk3h23l9k5kn9h0v76jn53ze3j0uafwhh6qfdnz7shep8tz60fal65m0jx6cp666p35qc6axn3s35hmk9nxmtgpq58l26t4cp4e2g8pX��hP����������=�������*���������� �(���0���8�@P����������payment-addr �multi-path-payments �route-blinding �	tlv-onion � �Ѓ:Q�&$�e�^��3$-W��=�)+u�� (string)
+[INFO] 2025-05-11T14:30:39.751Z - Invoice amt_paid_sat:  (string)
+[INFO] 2025-05-11T14:30:39.751Z - Invoice amt_paid_msat:  (string)
+[INFO] 2025-05-11T14:30:39.752Z - Invoice settle_date: 0 (string)
+[INFO] 2025-05-11T14:30:39.752Z - Invoice settlement status determined as: false
+[INFO] 2025-05-11T14:31:32.599Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-11T14:31:32.617Z - Server running on port 3000
+[INFO] 2025-05-11T14:31:33.620Z - Starting Lightning payment monitoring...
+[INFO] 2025-05-11T14:31:33.622Z - Initializing Lightning client...
+[INFO] 2025-05-11T14:31:33.623Z - Found proto file at: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-11T14:31:33.624Z - Using proto file: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-11T14:31:33.682Z - Using TLS cert from environment variable
+[INFO] 2025-05-11T14:31:33.701Z - Using macaroon from environment variable
+[INFO] 2025-05-11T14:31:33.706Z - Connecting to LND at localhost:10001
+[INFO] 2025-05-11T14:31:33.744Z - Lightning client initialized successfully
+[INFO] 2025-05-11T14:31:33.747Z - Starting Lightning payment monitoring...
+[INFO] 2025-05-11T14:31:33.748Z - Using subscribeInvoices method to monitor payments
+[INFO] 2025-05-11T14:31:33.774Z - Created invoice subscription with empty params
+[INFO] 2025-05-11T14:31:33.777Z - Lightning payment monitoring started successfully
+[INFO] 2025-05-11T14:31:48.421Z - Received invoice update
+[INFO] 2025-05-11T14:31:48.422Z - Processing invoice data
+[INFO] 2025-05-11T14:31:48.423Z - Invoice settled: false (boolean)
+[INFO] 2025-05-11T14:31:48.423Z - Invoice value: ��fb�EM%�n��ڿqF�9l��2ڼ��1���� (string)
+[INFO] 2025-05-11T14:31:48.423Z - Invoice value_msat: 8���J�lnbcrt10m1p5zpdx5pp5s6akvck4g4xjtcnwkryd40m3g6jnjm997ced409y4ctrrtvshhcsdqqcqzzsxqyz5vqsp5z9plls7kxu2vrmvq0u26kjmt9jefwrczawj78c9ymsceg055ks5s9qxpqysgqzhnjvxseyc4ex2q02a877cwga372atzqc5yajmlxfndc6sqtaryqc7qwx0n3wslak4yqrjpj2al4d5mdhxp88c35u5l4eqxkxcjem3qqg0tu96X��hP�������route-blinding �multi-path-payments �	tlv-onion �payment-addr � C���7���Kk,������1�>��) (string)
+[INFO] 2025-05-11T14:31:48.423Z - Invoice amt_paid_sat:  (string)
+[INFO] 2025-05-11T14:31:48.423Z - Invoice amt_paid_msat:  (string)
+[INFO] 2025-05-11T14:31:48.424Z - Invoice settle_date: 0 (string)
+[INFO] 2025-05-11T14:31:48.424Z - Invoice settlement status determined as: false
+[INFO] 2025-05-11T14:32:04.054Z - Received invoice update
+[INFO] 2025-05-11T14:32:04.055Z - Processing invoice data
+[INFO] 2025-05-11T14:32:04.056Z - Invoice settled: false (boolean)
+[INFO] 2025-05-11T14:32:04.058Z - Invoice value: ��fb�EM%�n��ڿqF�9l��2ڼ��1���� (string)
+[INFO] 2025-05-11T14:32:04.059Z - Invoice value_msat: 08���@���J�lnbcrt10m1p5zpdx5pp5s6akvck4g4xjtcnwkryd40m3g6jnjm997ced409y4ctrrtvshhcsdqqcqzzsxqyz5vqsp5z9plls7kxu2vrmvq0u26kjmt9jefwrczawj78c9ymsceg055ks5s9qxpqysgqzhnjvxseyc4ex2q02a877cwga372atzqc5yajmlxfndc6sqtaryqc7qwx0n3wslak4yqrjpj2al4d5mdhxp88c35u5l4eqxkxcjem3qqg0tu96X��hP����������=�������*���������� �(���0���8�@P����������route-blinding �	tlv-onion �payment-addr �multi-path-payments � C���7���Kk,������1�>��) (string)
+[INFO] 2025-05-11T14:32:04.059Z - Invoice amt_paid_sat:  (string)
+[INFO] 2025-05-11T14:32:04.059Z - Invoice amt_paid_msat:  (string)
+[INFO] 2025-05-11T14:32:04.060Z - Invoice settle_date: 0 (string)
+[INFO] 2025-05-11T14:32:04.060Z - Invoice settlement status determined as: false
+[INFO] 2025-05-11T14:34:44.022Z - Invoice subscription stream ended
+[INFO] 2025-05-11T14:34:49.028Z - Restarting Lightning payment monitoring...
+[INFO] 2025-05-11T14:34:49.029Z - Starting Lightning payment monitoring...
+[INFO] 2025-05-11T14:34:49.029Z - Using subscribeInvoices method to monitor payments
+[INFO] 2025-05-11T14:34:49.031Z - Created invoice subscription with empty params
+[ERROR] 2025-05-11T14:34:49.038Z - Invoice subscription error: 14 UNAVAILABLE: No connection established. Last error: Error: connect ECONNREFUSED 127.0.0.1:10001
+[INFO] 2025-05-11T14:34:49.038Z - Invoice subscription stream ended
+[INFO] 2025-05-11T16:31:29.076Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-11T16:31:29.094Z - Server running on port 3000
+[INFO] 2025-05-11T16:31:31.097Z - Starting Lightning payment monitoring from app.js...
+[INFO] 2025-05-11T16:31:31.099Z - Initializing Lightning client...
+[INFO] 2025-05-11T16:31:31.099Z - Found proto file at: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-11T16:31:31.100Z - Using proto file: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-11T16:31:31.134Z - Using TLS cert from environment variable
+[INFO] 2025-05-11T16:31:31.155Z - Using macaroon from environment variable
+[INFO] 2025-05-11T16:31:31.157Z - Connecting to LND at localhost:10001
+[INFO] 2025-05-11T16:31:31.183Z - Lightning client initialized successfully
+[INFO] 2025-05-11T16:31:31.185Z - Starting Lightning payment monitoring...
+[INFO] 2025-05-11T16:31:31.185Z - Using subscribeInvoices method to monitor payments
+[INFO] 2025-05-11T16:31:31.212Z - Created invoice subscription with empty params
+[INFO] 2025-05-11T16:31:31.215Z - Lightning payment monitoring started successfully
+[ERROR] 2025-05-11T16:31:31.267Z - Invoice subscription error: 14 UNAVAILABLE: No connection established. Last error: Error: connect ECONNREFUSED 127.0.0.1:10001
+[INFO] 2025-05-11T16:31:31.270Z - Invoice subscription stream ended
+[INFO] 2025-05-11T16:31:36.269Z - Attempting to reconnect Lightning payment monitoring...
+[INFO] 2025-05-11T16:31:36.270Z - Starting Lightning payment monitoring...
+[INFO] 2025-05-11T16:31:36.270Z - Using subscribeInvoices method to monitor payments
+[INFO] 2025-05-11T16:31:36.271Z - Created invoice subscription with empty params
+[ERROR] 2025-05-11T16:31:36.272Z - Invoice subscription error: 14 UNAVAILABLE: No connection established. Last error: Error: connect ECONNREFUSED ::1:10001
+[INFO] 2025-05-11T16:31:36.273Z - Invoice subscription stream ended
+[INFO] 2025-05-11T16:31:36.274Z - Restarting Lightning payment monitoring...
+[INFO] 2025-05-11T16:31:36.274Z - Starting Lightning payment monitoring...
+[INFO] 2025-05-11T16:31:36.274Z - Using subscribeInvoices method to monitor payments
+[INFO] 2025-05-11T16:31:36.275Z - Created invoice subscription with empty params
+[ERROR] 2025-05-11T16:31:36.278Z - Invoice subscription error: 14 UNAVAILABLE: No connection established. Last error: Error: connect ECONNREFUSED ::1:10001
+[INFO] 2025-05-11T16:31:36.278Z - Invoice subscription stream ended
+[INFO] 2025-05-11T16:31:41.273Z - Attempting to reconnect Lightning payment monitoring...
+[INFO] 2025-05-11T16:31:41.274Z - Starting Lightning payment monitoring...
+[INFO] 2025-05-11T16:31:41.274Z - Using subscribeInvoices method to monitor payments
+[INFO] 2025-05-11T16:31:41.276Z - Created invoice subscription with empty params
+[INFO] 2025-05-11T16:31:41.280Z - Restarting Lightning payment monitoring...
+[INFO] 2025-05-11T16:31:41.280Z - Payment listener already active, reusing existing stream
+[ERROR] 2025-05-11T16:31:41.282Z - Invoice subscription error: 14 UNAVAILABLE: No connection established. Last error: Error: connect ECONNREFUSED ::1:10001
+[INFO] 2025-05-11T16:31:41.283Z - Invoice subscription stream ended
+[INFO] 2025-05-11T16:31:41.284Z - Attempting to reconnect Lightning payment monitoring...
+[INFO] 2025-05-11T16:31:41.284Z - Starting Lightning payment monitoring...
+[INFO] 2025-05-11T16:31:41.285Z - Using subscribeInvoices method to monitor payments
+[INFO] 2025-05-11T16:31:41.287Z - Created invoice subscription with empty params
+[INFO] 2025-05-11T16:31:41.290Z - Restarting Lightning payment monitoring...
+[INFO] 2025-05-11T16:31:41.291Z - Payment listener already active, reusing existing stream
+[ERROR] 2025-05-11T16:31:41.295Z - Invoice subscription error: 14 UNAVAILABLE: No connection established. Last error: Error: connect ECONNREFUSED ::1:10001
+[INFO] 2025-05-11T16:31:41.297Z - Invoice subscription stream ended
+[INFO] 2025-05-11T16:31:46.283Z - Attempting to reconnect Lightning payment monitoring...
+[INFO] 2025-05-11T16:31:46.285Z - Starting Lightning payment monitoring...
+[INFO] 2025-05-11T16:31:46.285Z - Using subscribeInvoices method to monitor payments
+[INFO] 2025-05-11T16:31:46.289Z - Created invoice subscription with empty params
+[INFO] 2025-05-11T16:31:46.294Z - Restarting Lightning payment monitoring...
+[INFO] 2025-05-11T16:31:46.295Z - Payment listener already active, reusing existing stream
+[ERROR] 2025-05-11T16:31:46.297Z - Invoice subscription error: 14 UNAVAILABLE: No connection established. Last error: Error: connect ECONNREFUSED ::1:10001
+[INFO] 2025-05-11T16:31:46.299Z - Invoice subscription stream ended
+[INFO] 2025-05-11T16:31:46.300Z - Attempting to reconnect Lightning payment monitoring...
+[INFO] 2025-05-11T16:31:46.301Z - Starting Lightning payment monitoring...
+[INFO] 2025-05-11T16:31:46.302Z - Using subscribeInvoices method to monitor payments
+[INFO] 2025-05-11T16:31:46.304Z - Created invoice subscription with empty params
+[INFO] 2025-05-11T16:31:46.307Z - Restarting Lightning payment monitoring...
+[INFO] 2025-05-11T16:31:46.308Z - Payment listener already active, reusing existing stream
+[ERROR] 2025-05-11T16:31:46.310Z - Invoice subscription error: 14 UNAVAILABLE: No connection established. Last error: Error: connect ECONNREFUSED ::1:10001
+[INFO] 2025-05-11T16:31:46.311Z - Invoice subscription stream ended
+[INFO] 2025-05-11T16:41:52.895Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-11T16:41:52.917Z - Server running on port 3000
+[INFO] 2025-05-11T16:41:54.921Z - Starting Lightning payment monitoring from app.js...
+[INFO] 2025-05-11T16:41:54.922Z - Initializing Lightning client...
+[INFO] 2025-05-11T16:41:54.923Z - Found proto file at: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-11T16:41:54.923Z - Using proto file: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-11T16:41:54.964Z - Using TLS cert from environment variable
+[INFO] 2025-05-11T16:41:54.995Z - Using macaroon from environment variable
+[INFO] 2025-05-11T16:41:54.998Z - Connecting to LND at localhost:10001
+[INFO] 2025-05-11T16:41:55.018Z - Lightning client initialized successfully
+[INFO] 2025-05-11T16:41:55.019Z - Starting Lightning payment monitoring...
+[INFO] 2025-05-11T16:41:55.019Z - Using subscribeInvoices method to monitor payments
+[INFO] 2025-05-11T16:41:55.038Z - Created invoice subscription with empty params
+[INFO] 2025-05-11T16:41:55.042Z - Lightning payment monitoring started successfully
+[INFO] 2025-05-11T16:42:06.220Z - Received invoice update from subscription
+[INFO] 2025-05-11T16:42:06.221Z - Raw invoice data type: object
+[INFO] 2025-05-11T16:42:06.221Z - Invoice update keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-11T16:42:06.221Z - Raw invoice.settled: false
+[INFO] 2025-05-11T16:42:06.222Z - Processing invoice data
+[INFO] 2025-05-11T16:42:06.222Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-11T16:42:06.222Z - Payment hash: fa60dec5dbb3e3e007a824871586cb9dff4a8ba3383904912c8f5eec0ba19e5e
+[INFO] 2025-05-11T16:42:06.223Z - Amount from value_msat: 0
+[INFO] 2025-05-11T16:42:06.223Z - invoice.settled: false (boolean)
+[INFO] 2025-05-11T16:42:06.223Z - invoice.settle_date: 0 (string)
+[INFO] 2025-05-11T16:42:06.223Z - Invoice settlement status determined as: false
+[INFO] 2025-05-11T16:42:06.223Z - Parsed invoice settled status: false
+[INFO] 2025-05-11T16:42:06.223Z - Parsed invoice amount: 0
+[INFO] 2025-05-11T16:42:06.223Z - Invoice update received but invoice is not settled yet
+[INFO] 2025-05-11T16:42:19.170Z - Received invoice update from subscription
+[INFO] 2025-05-11T16:42:19.172Z - Raw invoice data type: object
+[INFO] 2025-05-11T16:42:19.172Z - Invoice update keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-11T16:42:19.173Z - Raw invoice.settled: false
+[INFO] 2025-05-11T16:42:19.173Z - Processing invoice data
+[INFO] 2025-05-11T16:42:19.175Z - Invoice object keys: memo, r_preimage, r_hash, value, value_msat, settled, creation_date, settle_date, payment_request, description_hash, expiry, fallback_addr, cltv_expiry, amt_paid_sat, amt_paid_msat
+[INFO] 2025-05-11T16:42:19.176Z - Payment hash: fa60dec5dbb3e3e007a824871586cb9dff4a8ba3383904912c8f5eec0ba19e5e
+[INFO] 2025-05-11T16:42:19.176Z - Amount from value_msat: 0
+[INFO] 2025-05-11T16:42:19.177Z - invoice.settled: false (boolean)
+[INFO] 2025-05-11T16:42:19.177Z - invoice.settle_date: 0 (string)
+[INFO] 2025-05-11T16:42:19.178Z - Invoice settlement status determined as: false
+[INFO] 2025-05-11T16:42:19.179Z - Parsed invoice settled status: false
+[INFO] 2025-05-11T16:42:19.180Z - Parsed invoice amount: 0
+[INFO] 2025-05-11T16:42:19.181Z - Invoice update received but invoice is not settled yet
+[INFO] 2025-05-11T16:49:59.808Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-11T16:49:59.825Z - Server running on port 3000
+[INFO] 2025-05-11T16:50:01.829Z - Starting Lightning payment monitoring from app.js...
+[INFO] 2025-05-11T16:50:01.830Z - Initializing Lightning client...
+[INFO] 2025-05-11T16:50:01.831Z - Found proto file at: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-11T16:50:01.831Z - Using proto file: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-11T16:50:01.868Z - Using TLS cert from environment variable
+[INFO] 2025-05-11T16:50:01.907Z - Using macaroon from environment variable
+[INFO] 2025-05-11T16:50:01.912Z - Connecting to LND at localhost:10001
+[INFO] 2025-05-11T16:50:01.931Z - Lightning client initialized successfully
+[INFO] 2025-05-11T16:50:01.932Z - Starting Lightning payment monitoring...
+[INFO] 2025-05-11T16:50:01.932Z - Using subscribeInvoices method to monitor payments
+[INFO] 2025-05-11T16:50:01.942Z - Created invoice subscription with empty params
+[INFO] 2025-05-11T16:50:01.945Z - Lightning payment monitoring started successfully
+[INFO] 2025-05-11T16:50:14.657Z - --- New Invoice Update ---
+[INFO] 2025-05-11T16:50:14.657Z - Processing invoice data
+[INFO] 2025-05-11T16:50:14.658Z - Raw invoice data: {
+  "memo": "",
+  "r_preimage": {
+    "type": "Buffer",
+    "data": []
+  },
+  "r_hash": {
+    "type": "Buffer",
+    "data": [
+      155,
+      124,
+      46,
+      23,
+      247,
+      25,
+      7,
+      54,
+      102,
+      125,
+      47,
+      186,
+      30,
+      102,
+      212,
+      118,
+      7,
+      136,
+      100,
+      1,
+      124,
+      62,
+      253,
+      67,
+      220,
+      251,
+      75,
+      22,
+      226,
+      167,
+      57,
+      17
+    ]
+  },
+  "value": "?��'e\bMϹE�´�o��dtd� ��[� K\u001f� K",
+  "value_msat": "8ƪ��\u0006J�\u0002lnbcrt10m1p5zp42xpp58l62gfm9ppxulw29snptf2t03mwkgarykssg376ms5syk8acyp9sdqqcqzzsxqyz5vqsp5qqr6q2vxx06kr5tespxqm5p4y3ydxjwxma6qg5ypy5fcqrpnzf6s9qxpqysgq9n7ewl2tyhma4emmd92mugtrjgpfdk049kjvnu9vzrw0lnrzg65hwuyat0xyfkjgj24lfcnrtrncexsxp8arqn6sjvwdlleg2f5phxgqqhjpmeX��\u0005hP�\u0001\u001c�\u0001����\u0003�\u0001\u0016\b\u0019\u0012\u0012\u0012\u000eroute-blinding \u0001�\u0001\u0016\b\u000e\u0012\u0012\u0012\fpayment-addr\u0018\u0001 \u0001�\u0001\u0013\b\b\u0012\u000f\u0012\ttlv-onion\u0018\u0001 \u0001�\u0001\u001b\b\u0011\u0012\u0017\u0012\u0013multi-path-payments \u0001�\u0001 \u0000\u0007�)�3�a�y�L\r�5$H�I��t\u0004P�%\u0013�\f3\u0012u",
+  "settled": false,
+  "creation_date": "0",
+  "settle_date": "0",
+  "payment_request": "",
+  "description_hash": "",
+  "expiry": "0",
+  "fallback_addr": "",
+  "cltv_expiry": "0",
+  "amt_paid_sat": "",
+  "amt_paid_msat": ""
+}
+[INFO] 2025-05-11T16:50:14.658Z - Payment hash: 9b7c2e17f7190736667d2fba1e66d476078864017c3efd43dcfb4b16e2a73911
+[INFO] 2025-05-11T16:50:14.658Z - Amount paid: 0 satoshis
+[INFO] 2025-05-11T16:50:14.658Z - Settlement status: false
+[INFO] 2025-05-11T16:50:14.659Z - Invoice update received (not settled): 9b7c2e17f7190736667d2fba1e66d476078864017c3efd43dcfb4b16e2a73911
+[INFO] 2025-05-11T16:50:29.349Z - --- New Invoice Update ---
+[INFO] 2025-05-11T16:50:29.352Z - Processing invoice data
+[INFO] 2025-05-11T16:50:29.354Z - Raw invoice data: {
+  "memo": "",
+  "r_preimage": {
+    "type": "Buffer",
+    "data": []
+  },
+  "r_hash": {
+    "type": "Buffer",
+    "data": [
+      155,
+      124,
+      46,
+      23,
+      247,
+      25,
+      7,
+      54,
+      102,
+      125,
+      47,
+      186,
+      30,
+      102,
+      212,
+      118,
+      7,
+      136,
+      100,
+      1,
+      124,
+      62,
+      253,
+      67,
+      220,
+      251,
+      75,
+      22,
+      226,
+      167,
+      57,
+      17
+    ]
+  },
+  "value": "?��'e\bMϹE�´�o��dtd� ��[� K\u001f� K",
+  "value_msat": "0\u00018ƪ��\u0006@ժ��\u0006J�\u0002lnbcrt10m1p5zp42xpp58l62gfm9ppxulw29snptf2t03mwkgarykssg376ms5syk8acyp9sdqqcqzzsxqyz5vqsp5qqr6q2vxx06kr5tespxqm5p4y3ydxjwxma6qg5ypy5fcqrpnzf6s9qxpqysgq9n7ewl2tyhma4emmd92mugtrjgpfdk049kjvnu9vzrw0lnrzg65hwuyat0xyfkjgj24lfcnrtrncexsxp8arqn6sjvwdlleg2f5phxgqqhjpmeX��\u0005hP�\u0001\u001c�\u0001\u0013�\u0001����\u0003�\u0001��=�\u0001����\u0003�\u0001\u0001�\u0001<\b������!\u0010\u0001\u0018����\u0003 �\u0001(ժ��\u00060ժ��\u00068�\u0003@\u0001J\u0007\b��\u0006\u0012\u0001\u0007P����\u0003b\u0007�\u0000\u0001�G\u0001\u0007�\u0001����\u0003�\u0001\u0013\b\b\u0012\u000f\u0012\ttlv-onion\u0018\u0001 \u0001�\u0001\u0016\b\u000e\u0012\u0012\u0012\fpayment-addr\u0018\u0001 \u0001�\u0001\u001b\b\u0011\u0012\u0017\u0012\u0013multi-path-payments \u0001�\u0001\u0016\b\u0019\u0012\u0012\u0012\u000eroute-blinding \u0001�\u0001 \u0000\u0007�)�3�a�y�L\r�5$H�I��t\u0004P�%\u0013�\f3\u0012u",
+  "settled": false,
+  "creation_date": "0",
+  "settle_date": "0",
+  "payment_request": "",
+  "description_hash": "",
+  "expiry": "0",
+  "fallback_addr": "",
+  "cltv_expiry": "0",
+  "amt_paid_sat": "",
+  "amt_paid_msat": ""
+}
+[INFO] 2025-05-11T16:50:29.356Z - Payment hash: 9b7c2e17f7190736667d2fba1e66d476078864017c3efd43dcfb4b16e2a73911
+[INFO] 2025-05-11T16:50:29.356Z - Amount paid: 0 satoshis
+[INFO] 2025-05-11T16:50:29.357Z - Settlement status: false
+[INFO] 2025-05-11T16:50:29.359Z - Invoice update received (not settled): 9b7c2e17f7190736667d2fba1e66d476078864017c3efd43dcfb4b16e2a73911
+[INFO] 2025-05-11T16:55:07.623Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-11T16:55:07.651Z - Server running on port 3000
+[INFO] 2025-05-11T16:55:09.655Z - Starting Lightning payment monitoring from app.js...
+[INFO] 2025-05-11T16:55:09.656Z - Initializing Lightning client...
+[INFO] 2025-05-11T16:55:09.657Z - Found proto file at: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-11T16:55:09.657Z - Using proto file: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-11T16:55:09.694Z - Using TLS cert from environment variable
+[INFO] 2025-05-11T16:55:09.714Z - Using macaroon from environment variable
+[INFO] 2025-05-11T16:55:09.716Z - Connecting to LND at localhost:10001
+[INFO] 2025-05-11T16:55:09.738Z - Lightning client initialized successfully
+[INFO] 2025-05-11T16:55:09.741Z - Starting Lightning payment monitoring...
+[INFO] 2025-05-11T16:55:09.741Z - Using subscribeInvoices method to monitor payments
+[INFO] 2025-05-11T16:55:09.758Z - Created invoice subscription with empty params
+[INFO] 2025-05-11T16:55:09.761Z - Lightning payment monitoring started successfully
+[INFO] 2025-05-11T16:55:22.372Z - Invoice update for a8d9ca773aacd470be8d2b262a9738c01906b15928ae84f7c0635237f7fe0ac5:
+[INFO] 2025-05-11T16:55:22.372Z - - Settled: false
+[INFO] 2025-05-11T16:55:22.372Z - - Amount: 0 sat
+[INFO] 2025-05-11T16:55:22.372Z - - Paid: undefined sat
+[INFO] 2025-05-11T16:55:34.297Z - Invoice update for a8d9ca773aacd470be8d2b262a9738c01906b15928ae84f7c0635237f7fe0ac5:
+[INFO] 2025-05-11T16:55:34.299Z - - Settled: false
+[INFO] 2025-05-11T16:55:34.300Z - - Amount: 0 sat
+[INFO] 2025-05-11T16:55:34.301Z - - Paid: undefined sat
+[INFO] 2025-05-11T17:19:14.266Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-11T17:19:14.285Z - Server running on port 3000
+[INFO] 2025-05-11T17:19:16.289Z - Starting Lightning payment monitoring from app.js...
+[INFO] 2025-05-11T17:19:16.291Z - Initializing Lightning client...
+[INFO] 2025-05-11T17:19:16.291Z - Found proto file at: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-11T17:19:16.292Z - Using proto file: /home/satya/LNsuiync/backend/src/protos/rpc.proto
+[INFO] 2025-05-11T17:19:16.325Z - Using TLS cert from environment variable
+[INFO] 2025-05-11T17:19:16.342Z - Using macaroon from environment variable
+[INFO] 2025-05-11T17:19:16.343Z - Connecting to LND at localhost:10001
+[INFO] 2025-05-11T17:19:16.360Z - Lightning client initialized successfully
+[INFO] 2025-05-11T17:19:16.361Z - Starting Lightning payment monitoring...
+[INFO] 2025-05-11T17:19:16.362Z - Using subscribeInvoices method to monitor payments
+[INFO] 2025-05-11T17:19:16.375Z - Created invoice subscription with empty params
+[INFO] 2025-05-11T17:19:16.378Z - Lightning payment monitoring started successfully
+[ERROR] 2025-05-11T17:19:30.320Z - Invoice parsing error: is_confirmed is not defined
+[INFO] 2025-05-11T17:19:30.321Z - Invoice update for undefined:
+[INFO] 2025-05-11T17:19:30.322Z - - Settled: false
+[INFO] 2025-05-11T17:19:30.322Z - - Amount: 0 sat
+[INFO] 2025-05-11T17:19:30.322Z - - Paid: undefined sat
+[ERROR] 2025-05-11T17:19:42.125Z - Invoice parsing error: is_confirmed is not defined
+[INFO] 2025-05-11T17:19:42.127Z - Invoice update for undefined:
+[INFO] 2025-05-11T17:19:42.127Z - - Settled: false
+[INFO] 2025-05-11T17:19:42.128Z - - Amount: 0 sat
+[INFO] 2025-05-11T17:19:42.128Z - - Paid: undefined sat
+[INFO] 2025-05-11T17:43:59.346Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-11T17:43:59.364Z - Server running on port 3000
+[INFO] 2025-05-11T17:44:01.367Z - Starting Lightning payment monitoring from app.js...
+[INFO] 2025-05-11T17:44:01.368Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T17:44:01.886Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T17:44:01.886Z - Starting Lightning payment monitoring using ln-service...
+[INFO] 2025-05-11T17:44:01.900Z - Lightning payment monitoring started successfully
+[ERROR] 2025-05-11T17:44:01.978Z - Error in invoice subscription: undefined
+[ERROR] 2025-05-11T17:44:01.979Z - Uncaught exception: Cannot read properties of undefined (reading 'message')
+[ERROR] 2025-05-11T17:44:01.980Z - TypeError: Cannot read properties of undefined (reading 'message')
+    at EventEmitter.<anonymous> (file:///home/satya/LNsuiync/backend/src/services/lightningService.js:85:54)
+    at EventEmitter.emit (node:events:518:28)
+    at finished (/home/satya/LNsuiync/backend/node_modules/lightning/lnd_methods/invoices/subscribe_to_invoices.js:106:22)
+    at ClientReadableStreamImpl.<anonymous> (/home/satya/LNsuiync/backend/node_modules/lightning/lnd_methods/invoices/subscribe_to_invoices.js:158:34)
+    at ClientReadableStreamImpl.emit (node:events:518:28)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+[ERROR] 2025-05-11T17:44:31.982Z - Error in invoice subscription: undefined
+[ERROR] 2025-05-11T17:44:31.983Z - Uncaught exception: Cannot read properties of undefined (reading 'message')
+[ERROR] 2025-05-11T17:44:31.983Z - TypeError: Cannot read properties of undefined (reading 'message')
+    at EventEmitter.<anonymous> (file:///home/satya/LNsuiync/backend/src/services/lightningService.js:85:54)
+    at EventEmitter.emit (node:events:518:28)
+    at finished (/home/satya/LNsuiync/backend/node_modules/lightning/lnd_methods/invoices/subscribe_to_invoices.js:106:22)
+    at ClientReadableStreamImpl.<anonymous> (/home/satya/LNsuiync/backend/node_modules/lightning/lnd_methods/invoices/subscribe_to_invoices.js:158:34)
+    at ClientReadableStreamImpl.emit (node:events:518:28)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+[ERROR] 2025-05-11T17:45:01.988Z - Error in invoice subscription: undefined
+[ERROR] 2025-05-11T17:45:01.990Z - Uncaught exception: Cannot read properties of undefined (reading 'message')
+[ERROR] 2025-05-11T17:45:01.991Z - TypeError: Cannot read properties of undefined (reading 'message')
+    at EventEmitter.<anonymous> (file:///home/satya/LNsuiync/backend/src/services/lightningService.js:85:54)
+    at EventEmitter.emit (node:events:518:28)
+    at finished (/home/satya/LNsuiync/backend/node_modules/lightning/lnd_methods/invoices/subscribe_to_invoices.js:106:22)
+    at ClientReadableStreamImpl.<anonymous> (/home/satya/LNsuiync/backend/node_modules/lightning/lnd_methods/invoices/subscribe_to_invoices.js:158:34)
+    at ClientReadableStreamImpl.emit (node:events:518:28)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+[INFO] 2025-05-11T17:45:18.625Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-11T17:45:18.643Z - Server running on port 3000
+[INFO] 2025-05-11T17:45:20.647Z - Starting Lightning payment monitoring from app.js...
+[INFO] 2025-05-11T17:45:20.648Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T17:45:21.213Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T17:45:21.214Z - Starting Lightning payment monitoring using ln-service...
+[INFO] 2025-05-11T17:45:21.224Z - Lightning payment monitoring started successfully
+[ERROR] 2025-05-11T17:45:21.295Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:45:21.296Z - Error in invoice subscription: Undefined error object received.
+[ERROR] 2025-05-11T17:45:51.304Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:45:51.306Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T17:46:15.897Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-11T17:46:15.917Z - Server running on port 3000
+[INFO] 2025-05-11T17:46:17.921Z - Starting Lightning payment monitoring from app.js...
+[INFO] 2025-05-11T17:46:17.922Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T17:46:18.432Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T17:46:18.432Z - Starting Lightning payment monitoring using ln-service...
+[INFO] 2025-05-11T17:46:18.442Z - Lightning payment monitoring started successfully
+[ERROR] 2025-05-11T17:46:18.515Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:46:18.516Z - Error in invoice subscription: Undefined error object received.
+[ERROR] 2025-05-11T17:46:48.522Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:46:48.524Z - Error in invoice subscription: Undefined error object received.
+[ERROR] 2025-05-11T17:47:18.527Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:47:18.528Z - Error in invoice subscription: Undefined error object received.
+[ERROR] 2025-05-11T17:47:48.529Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:47:48.530Z - Error in invoice subscription: Undefined error object received.
+[ERROR] 2025-05-11T17:48:18.532Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:48:18.532Z - Error in invoice subscription: Undefined error object received.
+[ERROR] 2025-05-11T17:48:48.539Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:48:48.539Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T17:49:15.135Z - Environment Variables Loaded: LND_HOST=localhost
+[INFO] 2025-05-11T17:49:15.157Z - Server running on port 3000
+[INFO] 2025-05-11T17:49:17.162Z - Starting Lightning payment monitoring from app.js...
+[INFO] 2025-05-11T17:49:17.163Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T17:49:17.601Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T17:49:17.602Z - Starting Lightning payment monitoring using ln-service...
+[INFO] 2025-05-11T17:49:17.612Z - Lightning payment monitoring started successfully
+[ERROR] 2025-05-11T17:49:17.679Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:49:17.680Z - Error in invoice subscription: Undefined error object received.
+[ERROR] 2025-05-11T17:49:47.686Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:49:47.687Z - Error in invoice subscription: Undefined error object received.
+[ERROR] 2025-05-11T17:50:17.690Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:50:17.690Z - Error in invoice subscription: Undefined error object received.
+[ERROR] 2025-05-11T17:50:47.693Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:50:47.693Z - Error in invoice subscription: Undefined error object received.
+[ERROR] 2025-05-11T17:51:17.697Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:51:17.698Z - Error in invoice subscription: Undefined error object received.
+[ERROR] 2025-05-11T17:51:47.702Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:51:47.703Z - Error in invoice subscription: Undefined error object received.
+[ERROR] 2025-05-11T17:52:17.705Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:52:17.705Z - Error in invoice subscription: Undefined error object received.
+[ERROR] 2025-05-11T17:52:47.712Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:52:47.713Z - Error in invoice subscription: Undefined error object received.
+[ERROR] 2025-05-11T17:53:17.717Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:53:17.717Z - Error in invoice subscription: Undefined error object received.
+[ERROR] 2025-05-11T17:53:47.719Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:53:47.720Z - Error in invoice subscription: Undefined error object received.
+[ERROR] 2025-05-11T17:54:17.723Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:54:17.723Z - Error in invoice subscription: Undefined error object received.
+[ERROR] 2025-05-11T17:54:47.726Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:54:47.726Z - Error in invoice subscription: Undefined error object received.
+[ERROR] 2025-05-11T17:55:17.727Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:55:17.728Z - Error in invoice subscription: Undefined error object received.
+[ERROR] 2025-05-11T17:55:47.731Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:55:47.731Z - Error in invoice subscription: Undefined error object received.
+[ERROR] 2025-05-11T17:56:17.733Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:56:17.734Z - Error in invoice subscription: Undefined error object received.
+[ERROR] 2025-05-11T17:56:47.735Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:56:47.736Z - Error in invoice subscription: Undefined error object received.
+[ERROR] 2025-05-11T17:57:17.737Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:57:17.737Z - Error in invoice subscription: Undefined error object received.
+[ERROR] 2025-05-11T17:57:47.739Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[ERROR] 2025-05-11T17:57:47.740Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T17:58:25.655Z - Environment Variables Loaded: LND_HOST=127.0.0.1
+[INFO] 2025-05-11T17:58:25.678Z - Server running on port 3000
+[INFO] 2025-05-11T17:58:27.682Z - Starting Lightning payment monitoring from app.js...
+[INFO] 2025-05-11T17:58:27.683Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T17:58:28.187Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T17:58:28.188Z - Starting Lightning payment monitoring using ln-service (attempt 1)...
+[INFO] 2025-05-11T17:58:28.197Z - Lightning payment monitoring started successfully
+[ERROR] 2025-05-11T17:58:28.271Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T17:58:28.272Z - Will attempt to reconnect in 1 seconds...
+[ERROR] 2025-05-11T17:58:28.273Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T17:58:28.273Z - Will attempt to reconnect in 1 seconds...
+[INFO] 2025-05-11T17:58:29.272Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T17:58:29.522Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T17:58:29.522Z - Starting Lightning payment monitoring using ln-service (attempt 2)...
+[INFO] 2025-05-11T17:58:29.530Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T17:58:29.759Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T17:58:29.759Z - Starting Lightning payment monitoring using ln-service (attempt 2)...
+[ERROR] 2025-05-11T17:58:29.766Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T17:58:29.767Z - Will attempt to reconnect in 2 seconds...
+[ERROR] 2025-05-11T17:58:29.767Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T17:58:29.767Z - Will attempt to reconnect in 2 seconds...
+[ERROR] 2025-05-11T17:58:29.771Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T17:58:29.771Z - Will attempt to reconnect in 2 seconds...
+[ERROR] 2025-05-11T17:58:29.771Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T17:58:29.771Z - Will attempt to reconnect in 2 seconds...
+[INFO] 2025-05-11T17:58:31.766Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T17:58:32.021Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T17:58:32.021Z - Starting Lightning payment monitoring using ln-service (attempt 3)...
+[INFO] 2025-05-11T17:58:32.023Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T17:58:32.324Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T17:58:32.325Z - Starting Lightning payment monitoring using ln-service (attempt 3)...
+[INFO] 2025-05-11T17:58:32.336Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T17:58:32.617Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T17:58:32.617Z - Starting Lightning payment monitoring using ln-service (attempt 3)...
+[INFO] 2025-05-11T17:58:32.619Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T17:58:32.853Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T17:58:32.853Z - Starting Lightning payment monitoring using ln-service (attempt 3)...
+[ERROR] 2025-05-11T17:58:32.881Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T17:58:32.882Z - Will attempt to reconnect in 4 seconds...
+[ERROR] 2025-05-11T17:58:32.882Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T17:58:32.882Z - Will attempt to reconnect in 4 seconds...
+[ERROR] 2025-05-11T17:58:32.884Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T17:58:32.884Z - Will attempt to reconnect in 4 seconds...
+[ERROR] 2025-05-11T17:58:32.884Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T17:58:32.885Z - Will attempt to reconnect in 4 seconds...
+[ERROR] 2025-05-11T17:58:32.894Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T17:58:32.894Z - Will attempt to reconnect in 4 seconds...
+[ERROR] 2025-05-11T17:58:32.894Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T17:58:32.894Z - Will attempt to reconnect in 4 seconds...
+[ERROR] 2025-05-11T17:58:32.895Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T17:58:32.896Z - Will attempt to reconnect in 4 seconds...
+[ERROR] 2025-05-11T17:58:32.896Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T17:58:32.896Z - Will attempt to reconnect in 4 seconds...
+[INFO] 2025-05-11T17:58:36.882Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T17:58:37.123Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T17:58:37.123Z - Starting Lightning payment monitoring using ln-service (attempt 4)...
+[INFO] 2025-05-11T17:58:37.124Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T17:58:37.345Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T17:58:37.345Z - Starting Lightning payment monitoring using ln-service (attempt 4)...
+[INFO] 2025-05-11T17:58:37.352Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T17:58:37.592Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T17:58:37.592Z - Starting Lightning payment monitoring using ln-service (attempt 4)...
+[INFO] 2025-05-11T17:58:37.594Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T17:58:37.818Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T17:58:37.818Z - Starting Lightning payment monitoring using ln-service (attempt 4)...
+[INFO] 2025-05-11T17:58:37.819Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T17:58:38.009Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T17:58:38.010Z - Starting Lightning payment monitoring using ln-service (attempt 4)...
+[INFO] 2025-05-11T17:58:38.011Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T17:58:38.206Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T17:58:38.207Z - Starting Lightning payment monitoring using ln-service (attempt 4)...
+[INFO] 2025-05-11T17:58:38.207Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T17:58:38.440Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T17:58:38.440Z - Starting Lightning payment monitoring using ln-service (attempt 4)...
+[INFO] 2025-05-11T17:58:38.442Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T17:58:38.628Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T17:58:38.629Z - Starting Lightning payment monitoring using ln-service (attempt 4)...
+[ERROR] 2025-05-11T17:58:38.668Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T17:58:38.668Z - Will attempt to reconnect in 8 seconds...
+[ERROR] 2025-05-11T17:58:38.669Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T17:58:38.669Z - Will attempt to reconnect in 8 seconds...
+[ERROR] 2025-05-11T17:58:38.670Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T17:58:38.671Z - Will attempt to reconnect in 8 seconds...
+[ERROR] 2025-05-11T17:58:38.671Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T17:58:38.672Z - Will attempt to reconnect in 8 seconds...
+[ERROR] 2025-05-11T17:58:38.695Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T17:58:38.696Z - Will attempt to reconnect in 8 seconds...
+[ERROR] 2025-05-11T17:58:38.696Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T17:58:38.696Z - Will attempt to reconnect in 8 seconds...
+[ERROR] 2025-05-11T17:58:38.698Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T17:58:38.698Z - Will attempt to reconnect in 8 seconds...
+[ERROR] 2025-05-11T17:58:38.698Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T17:58:38.699Z - Will attempt to reconnect in 8 seconds...
+[ERROR] 2025-05-11T17:58:38.700Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T17:58:38.700Z - Will attempt to reconnect in 8 seconds...
+[ERROR] 2025-05-11T17:58:38.700Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T17:58:38.700Z - Will attempt to reconnect in 8 seconds...
+[ERROR] 2025-05-11T17:58:38.701Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T17:58:38.701Z - Will attempt to reconnect in 8 seconds...
+[ERROR] 2025-05-11T17:58:38.702Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T17:58:38.702Z - Will attempt to reconnect in 8 seconds...
+[ERROR] 2025-05-11T17:58:38.703Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T17:58:38.703Z - Will attempt to reconnect in 8 seconds...
+[ERROR] 2025-05-11T17:58:38.704Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T17:58:38.704Z - Will attempt to reconnect in 8 seconds...
+[ERROR] 2025-05-11T17:58:38.705Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T17:58:38.705Z - Will attempt to reconnect in 8 seconds...
+[ERROR] 2025-05-11T17:58:38.705Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T17:58:38.706Z - Will attempt to reconnect in 8 seconds...
+[INFO] 2025-05-11T18:01:51.980Z - Environment Variables Loaded: LND_HOST=127.0.0.1
+[INFO] 2025-05-11T18:01:52.007Z - Server running on port 3000
+[INFO] 2025-05-11T18:01:54.011Z - Starting Lightning payment monitoring from app.js...
+[INFO] 2025-05-11T18:01:54.012Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T18:01:54.441Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T18:01:54.442Z - Starting Lightning payment monitoring using ln-service (attempt 1)...
+[INFO] 2025-05-11T18:01:54.460Z - Lightning payment monitoring started successfully
+[ERROR] 2025-05-11T18:01:54.537Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T18:01:54.538Z - Will attempt to reconnect in 1 seconds...
+[ERROR] 2025-05-11T18:01:54.539Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T18:01:54.539Z - Will attempt to reconnect in 1 seconds...
+[INFO] 2025-05-11T18:01:55.539Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T18:06:02.809Z - Environment Variables Loaded: LND_HOST=127.0.0.1
+[INFO] 2025-05-11T18:06:02.829Z - Server running on port 3000
+[INFO] 2025-05-11T18:06:04.833Z - Starting Lightning payment monitoring from app.js...
+[INFO] 2025-05-11T18:06:04.834Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T18:06:05.318Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T18:06:05.319Z - Starting Lightning payment monitoring using ln-service (attempt 1)...
+[INFO] 2025-05-11T18:06:05.334Z - Lightning payment monitoring started successfully
+[ERROR] 2025-05-11T18:06:05.413Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T18:06:05.413Z - Will attempt to reconnect in 1 seconds...
+[ERROR] 2025-05-11T18:06:05.414Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T18:06:05.414Z - Will attempt to reconnect in 1 seconds...
+[INFO] 2025-05-11T18:06:06.414Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T18:06:06.692Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T18:06:06.693Z - Starting Lightning payment monitoring using ln-service (attempt 2)...
+[INFO] 2025-05-11T18:06:06.702Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T18:06:06.976Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T18:06:06.976Z - Starting Lightning payment monitoring using ln-service (attempt 2)...
+[ERROR] 2025-05-11T18:06:06.988Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T18:06:06.988Z - Will attempt to reconnect in 2 seconds...
+[ERROR] 2025-05-11T18:06:06.988Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T18:06:06.989Z - Will attempt to reconnect in 2 seconds...
+[ERROR] 2025-05-11T18:06:06.993Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T18:06:06.993Z - Will attempt to reconnect in 2 seconds...
+[ERROR] 2025-05-11T18:06:06.994Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T18:06:06.994Z - Will attempt to reconnect in 2 seconds...
+[INFO] 2025-05-11T18:11:12.734Z - Environment Variables Loaded: LND_HOST=127.0.0.1
+[INFO] 2025-05-11T18:11:12.752Z - Server running on port 3000
+[INFO] 2025-05-11T18:11:14.757Z - Starting Lightning payment monitoring from app.js...
+[INFO] 2025-05-11T18:11:14.758Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T18:11:15.185Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T18:11:15.185Z - Starting Lightning payment monitoring using ln-service (attempt 1)...
+[INFO] 2025-05-11T18:11:15.194Z - Lightning payment monitoring started successfully
+[ERROR] 2025-05-11T18:11:15.269Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T18:11:15.270Z - Will attempt to reconnect in 1 seconds...
+[ERROR] 2025-05-11T18:11:15.271Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T18:11:15.272Z - Will attempt to reconnect in 1 seconds...
+[INFO] 2025-05-11T18:11:16.272Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T18:11:16.510Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T18:11:16.510Z - Starting Lightning payment monitoring using ln-service (attempt 2)...
+[INFO] 2025-05-11T18:11:16.512Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T18:11:16.744Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T18:11:16.744Z - Starting Lightning payment monitoring using ln-service (attempt 2)...
+[ERROR] 2025-05-11T18:11:16.760Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T18:11:16.760Z - Will attempt to reconnect in 2 seconds...
+[ERROR] 2025-05-11T18:11:16.761Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T18:11:16.761Z - Will attempt to reconnect in 2 seconds...
+[ERROR] 2025-05-11T18:11:16.765Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T18:11:16.765Z - Will attempt to reconnect in 2 seconds...
+[ERROR] 2025-05-11T18:11:16.766Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T18:11:16.766Z - Will attempt to reconnect in 2 seconds...
+[INFO] 2025-05-11T18:13:25.546Z - Environment Variables Loaded: LND_HOST=127.0.0.1
+[INFO] 2025-05-11T18:13:25.567Z - Server running on port 3000
+[INFO] 2025-05-11T18:13:27.571Z - Starting Lightning payment monitoring from app.js...
+[INFO] 2025-05-11T18:13:27.572Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T18:13:28.005Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T18:13:28.005Z - Starting Lightning payment monitoring using ln-service (attempt 1)...
+[INFO] 2025-05-11T18:13:28.016Z - Lightning payment monitoring started successfully
+[ERROR] 2025-05-11T18:13:28.100Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T18:13:28.101Z - Will attempt to reconnect in 1 seconds...
+[ERROR] 2025-05-11T18:13:28.102Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T18:13:28.102Z - Will attempt to reconnect in 1 seconds...
+[INFO] 2025-05-11T18:13:29.102Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T18:13:29.345Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T18:13:29.345Z - Starting Lightning payment monitoring using ln-service (attempt 2)...
+[INFO] 2025-05-11T18:13:29.354Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T18:13:29.582Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T18:13:29.583Z - Starting Lightning payment monitoring using ln-service (attempt 2)...
+[ERROR] 2025-05-11T18:13:29.591Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T18:13:29.591Z - Will attempt to reconnect in 2 seconds...
+[ERROR] 2025-05-11T18:13:29.592Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T18:13:29.592Z - Will attempt to reconnect in 2 seconds...
+[ERROR] 2025-05-11T18:13:29.596Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: DEPTH_ZERO_SELF_SIGNED_CERT","metadata":{}}}]
+[INFO] 2025-05-11T18:13:29.596Z - Will attempt to reconnect in 2 seconds...
+[ERROR] 2025-05-11T18:13:29.596Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T18:13:29.596Z - Will attempt to reconnect in 2 seconds...
+[INFO] 2025-05-11T18:19:25.638Z - Environment Variables Loaded: LND_HOST=127.0.0.1
+[INFO] 2025-05-11T18:19:25.656Z - Server running on port 3000
+[INFO] 2025-05-11T18:19:27.660Z - Starting Lightning payment monitoring from app.js...
+[INFO] 2025-05-11T18:19:27.661Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T18:19:28.071Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T18:19:28.071Z - Starting Lightning payment monitoring using ln-service (attempt 1)...
+[INFO] 2025-05-11T18:19:28.080Z - Lightning payment monitoring started successfully
+[ERROR] 2025-05-11T18:19:28.176Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[INFO] 2025-05-11T18:19:28.177Z - Will attempt to reconnect in 1 seconds...
+[ERROR] 2025-05-11T18:19:28.179Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T18:19:28.179Z - Will attempt to reconnect in 1 seconds...
+[INFO] 2025-05-11T18:19:29.179Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T18:19:29.403Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T18:19:29.403Z - Starting Lightning payment monitoring using ln-service (attempt 2)...
+[INFO] 2025-05-11T18:19:29.406Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T18:19:29.626Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T18:19:29.626Z - Starting Lightning payment monitoring using ln-service (attempt 2)...
+[ERROR] 2025-05-11T18:19:29.636Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[INFO] 2025-05-11T18:19:29.637Z - Will attempt to reconnect in 2 seconds...
+[ERROR] 2025-05-11T18:19:29.637Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T18:19:29.637Z - Will attempt to reconnect in 2 seconds...
+[ERROR] 2025-05-11T18:19:29.640Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[INFO] 2025-05-11T18:19:29.641Z - Will attempt to reconnect in 2 seconds...
+[ERROR] 2025-05-11T18:19:29.641Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T18:19:29.641Z - Will attempt to reconnect in 2 seconds...
+[INFO] 2025-05-11T18:21:24.805Z - Environment Variables Loaded: LND_HOST=127.0.0.1
+[INFO] 2025-05-11T18:21:24.823Z - Server running on port 3000
+[INFO] 2025-05-11T18:21:26.828Z - Starting Lightning payment monitoring from app.js...
+[INFO] 2025-05-11T18:21:26.830Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T18:21:27.335Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T18:21:27.335Z - Starting Lightning payment monitoring using ln-service (attempt 1)...
+[INFO] 2025-05-11T18:21:27.343Z - Lightning payment monitoring started successfully
+[ERROR] 2025-05-11T18:21:27.397Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[INFO] 2025-05-11T18:21:27.399Z - Will attempt to reconnect in 1 seconds...
+[ERROR] 2025-05-11T18:21:27.400Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T18:21:27.400Z - Will attempt to reconnect in 1 seconds...
+[INFO] 2025-05-11T18:21:28.400Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T18:21:28.638Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T18:21:28.639Z - Starting Lightning payment monitoring using ln-service (attempt 2)...
+[INFO] 2025-05-11T18:21:28.643Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T18:21:36.649Z - Environment Variables Loaded: LND_HOST=127.0.0.1
+[INFO] 2025-05-11T18:21:36.673Z - Server running on port 3000
+[INFO] 2025-05-11T18:21:38.677Z - Starting Lightning payment monitoring from app.js...
+[INFO] 2025-05-11T18:21:38.679Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T18:21:39.131Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T18:21:39.131Z - Starting Lightning payment monitoring using ln-service (attempt 1)...
+[INFO] 2025-05-11T18:21:39.142Z - Lightning payment monitoring started successfully
+[ERROR] 2025-05-11T18:21:39.223Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[INFO] 2025-05-11T18:21:39.225Z - Will attempt to reconnect in 1 seconds...
+[ERROR] 2025-05-11T18:21:39.226Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T18:21:39.226Z - Will attempt to reconnect in 1 seconds...
+[INFO] 2025-05-11T18:25:58.395Z - Environment Variables Loaded: LND_HOST=127.0.0.1
+[INFO] 2025-05-11T18:25:58.412Z - Server running on port 3000
+[INFO] 2025-05-11T18:26:00.416Z - Starting Lightning payment monitoring from app.js...
+[INFO] 2025-05-11T18:26:00.418Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T18:26:00.833Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T18:26:00.833Z - Starting Lightning payment monitoring using ln-service (attempt 1)...
+[INFO] 2025-05-11T18:26:00.840Z - Lightning payment monitoring started successfully
+[ERROR] 2025-05-11T18:26:00.906Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[INFO] 2025-05-11T18:26:00.907Z - Will attempt to reconnect in 1 seconds...
+[ERROR] 2025-05-11T18:26:00.909Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T18:26:00.910Z - Will attempt to reconnect in 1 seconds...
+[INFO] 2025-05-11T18:26:01.909Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T18:26:02.175Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T18:26:02.175Z - Starting Lightning payment monitoring using ln-service (attempt 2)...
+[INFO] 2025-05-11T18:26:02.179Z - Initializing Lightning client using ln-service...
+[INFO] 2025-05-11T18:26:02.425Z - Lightning client initialized successfully using ln-service.
+[INFO] 2025-05-11T18:26:02.425Z - Starting Lightning payment monitoring using ln-service (attempt 2)...
+[ERROR] 2025-05-11T18:26:02.434Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[INFO] 2025-05-11T18:26:02.435Z - Will attempt to reconnect in 2 seconds...
+[ERROR] 2025-05-11T18:26:02.435Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T18:26:02.435Z - Will attempt to reconnect in 2 seconds...
+[ERROR] 2025-05-11T18:26:02.439Z - Error in invoice subscription: [503,"UnexpectedInvoiceSubscriptionError",{"err":{"code":14,"details":"No connection established. Last error: Error: self-signed certificate","metadata":{}}}]
+[INFO] 2025-05-11T18:26:02.440Z - Will attempt to reconnect in 2 seconds...
+[ERROR] 2025-05-11T18:26:02.440Z - Error in invoice subscription: Undefined error object received.
+[INFO] 2025-05-11T18:26:02.440Z - Will attempt to reconnect in 2 seconds...
+[INFO] 2025-05-11T18:46:39.894Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-11T18:54:58.933Z - Starting mintTokens function with amountPaid: 100000
+[INFO] 2025-05-11T19:03:50.225Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-11T19:27:47.622Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-11T19:28:54.722Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-11T19:35:37.722Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-11T19:53:43.315Z - Starting mintTokens function with amountPaid: 1000000

@@ -6,17 +6,26 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export const getSigner = async () => {
-  if (!process.env.SUI_PRIVATE_KEY || !process.env.SUI_RPC) {
-    throw new Error('Missing SUI_PRIVATE_KEY or SUI_RPC in environment variables');
+  const base64Key = process.env.SUI_PRIVATE_KEY;
+  const rpcUrl = process.env.SUI_RPC;
+  if (!base64Key || !rpcUrl) {
+    throw new Error('Missing SUI_PRIVATE_KEY or SUI_RPC');
+  }
+  console.log('SUI_PRIVATE_KEY:', base64Key);
+  const secretKeyBytes = fromBase64(base64Key);
+  let secretKey;
+
+  if (secretKeyBytes.length === 64 || secretKeyBytes.length === 65) {
+    // Format: [optional scheme byte] + [32-byte secret key] + [32-byte public key]
+    secretKey = secretKeyBytes.slice(1, 33); // skip scheme byte
+  } else if (secretKeyBytes.length === 32) {
+    secretKey = secretKeyBytes; // raw secret key
+  } else {
+    throw new Error(`Invalid secret key length: expected 32, 64, or 65 bytes, got ${secretKeyBytes.length}`);
   }
 
-  const keypair = Ed25519Keypair.fromSecretKey(
-    fromBase64(process.env.SUI_PRIVATE_KEY)
-  );
-
-  const client = new SuiClient({
-    url: process.env.SUI_RPC,
-  });
+  const keypair = Ed25519Keypair.fromSecretKey(secretKey);
+  const client = new SuiClient({ url: rpcUrl });
 
   return {
     keypair,
