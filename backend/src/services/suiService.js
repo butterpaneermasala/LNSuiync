@@ -1,69 +1,76 @@
-import { getKeypairAndClient } from '../config/suiConfig.js';
+// import { getKeypairAndClient } from '../config/suiConfig.js';
 import { Transaction } from '@mysten/sui/transactions';
+import { Ed25519Keypair } from '@mysten/sui/keypairs/ed25519';
+import { SuiClient } from '@mysten/sui/client';
 import { logInfo, logError } from '../utils/logger.js';
-import { bcs } from '@mysten/sui/bcs'; // Import BCS for serialization
+import {
+    ADMIN_SECRET_KEY,
+    SUI_NETWORK,
+    TREASURY_CAP_OBJECT_ID,
+    PACKAGE_ID,
+    MODULE,
+    RECIPIENT_ADDRESS,
+} from '../config/constants.js'; 
 
 export const mintTokens = async (amountPaid) => {
     logInfo(`Starting mintTokens function with amountPaid: ${amountPaid}`);
 
-    const { keypair, client } = await getKeypairAndClient();
+    if (!TREASURY_CAP_OBJECT_ID || !RECIPIENT_ADDRESS || !PACKAGE_ID || !MODULE) {
+        throw new Error("Required environment variables are not set.");
+    }
 
-    // Use BigInt to represent amount accurately for u64
-    const amountInTokens = BigInt(amountPaid); // Assuming amountPaid is in smallest units already
+    const txb = new Transaction();
+    const amountInTokens = BigInt(amountPaid);
     logInfo(`Converted amountInTokens: ${amountInTokens.toString()}`);
 
-    const tx = new Transaction();
-    tx.moveCall({
-        target: `${process.env.PACKAGE_ID}::${process.env.MODULE}::mint`,
+    txb.moveCall({
+        target: `${PACKAGE_ID}::${MODULE}::mint`,
         arguments: [
-            tx.object(process.env.TREASURY_CAP_OBJECT_ID),
-            tx.pure.u64(amountInTokens), // Correct way for u64
-            tx.pure.address(process.env.RECIPIENT_ADDRESS), // Correct way for address
+            txb.object(TREASURY_CAP_OBJECT_ID),    // Treasury cap object ID
+            txb.pure.u64(amountInTokens),          // Amount to mint
+            txb.pure.address(RECIPIENT_ADDRESS),   // Recipient address
         ],
-    });
-    executeTx(txb);
-  
+    });    
 
-    try {
-        logInfo('Executing transaction...');
-        const result = await client.signAndExecuteTransaction({
-          transaction: tx,
-          signer: keypair,
-          options: { showEffects: true, showObjectChanges: true },
-        });
-    } catch (err) {
-        logError(`Minting failed: ${err.message}`);
-        logError(`Error details: ${JSON.stringify(err, null, 2)}`);
-    }
+    // txb.transferObjects([coin], txb.pure.address(RECIPIENT_ADDRESS));
+
+    await executeTx(txb);
 };
 
-async function executeTx(txb: Transaction) {
-  const suiClient = new SuiClient({ url: SUI_NETWORK });
-  if (!ADMIN_SECRET_KEY) throw new Error("ADMIN_SECRET_KEY environment variable is not set.");
-  const adminKeypair = Ed25519Keypair.fromSecretKey(ADMIN_SECRET_KEY);
+async function executeTx(txb) {
+    logInfo(`Connecting to Sui network: ${SUI_NETWORK}`);
+    const suiClient = new SuiClient({ url: SUI_NETWORK });
 
-  txb.setGasBudget(1000000000);
+    if (!ADMIN_SECRET_KEY) throw new Error("ADMIN_SECRET_KEY environment variable is not set.");
 
-  suiClient.signAndExecuteTransaction({
-      signer: adminKeypair,
-      transaction: txb,
-      requestType: 'WaitForLocalExecution',
-      options: {
-          showEvents: true,
-          showEffects: true,
-          showObjectChanges: true,
-          showBalanceChanges: true,
-          showInput: true,
-      }
-  }).then((res) => {
-      const status = res?.effects?.status.status;
-      console.log("TxDigest = ", res?.digest);
-      console.log("Status = ", status);
-      if (status === "success") {
-          console.log("Transaction executed successfully.");
-      }
-      if (status == "failure") {
-          console.log("Transaction error = ", res?.effects?.status);
-      }
-  });
+    const adminKeypair = Ed25519Keypair.fromSecretKey(ADMIN_SECRET_KEY);
+    txb.setGasBudget(3000000);
+
+    try {
+        const res = await suiClient.signAndExecuteTransaction({
+            signer: adminKeypair,
+            transaction: txb,
+            requestType: 'WaitForLocalExecution',
+            options: {
+                showEvents: true,
+                showEffects: true,
+                showObjectChanges: true,
+                showBalanceChanges: true,
+                showInput: true,
+            },
+        });
+
+        const status = res?.effects?.status.status;
+        console.log("TxDigest = ", res?.digest);
+        console.log("Status = ", status);
+
+        if (status === "success") {
+            console.log("Transaction executed successfully.");
+        } else {
+            console.error("Transaction failed: ", res?.effects?.status);
+        }
+    } catch (err) {
+        logError(`Transaction execution failed: ${err.message}`);
+        logError(`Error details: ${JSON.stringify(err, null, 2)}`);
+    }
 }

@@ -7,7 +7,7 @@ dotenv.config();
 export const SUI_NETWORK = process.env.SUI_RPC;
 export const PACKAGE_ID = process.env.PACKAGE_ID;
 export const MODULE = process.env.MODULE;
-// export const COIN_TYPE = process.env.COIN_TYPE; // not required
+export const COIN_TYPE = process.env.COIN_TYPE;
 export const TREASURY_CAP_OBJECT_ID = process.env.TREASURY_CAP_OBJECT_ID;
 export const RECIPIENT_ADDRESS = process.env.RECIPIENT_ADDRESS;
 

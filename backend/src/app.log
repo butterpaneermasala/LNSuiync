@@ -1633,3 +1633,42 @@
 [ERROR] 2025-05-11T21:14:58.889Z - Error details: {}
 [INFO] 2025-05-11T21:42:49.756Z - Starting mintTokens function with amountPaid: 1000000
 [INFO] 2025-05-11T21:42:50.027Z - Converted amountInTokens: 1000000
+[INFO] 2025-05-14T13:17:30.448Z - Starting mintTokens function with amountPaid: 100000
+[INFO] 2025-05-14T13:18:21.177Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-14T13:26:54.889Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-14T13:26:54.893Z - Converted amountInTokens: 1000000
+[INFO] 2025-05-14T13:26:54.911Z - Connecting to Sui network: https://fullnode.testnet.sui.io
+[INFO] 2025-05-14T13:28:39.536Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-14T13:28:39.538Z - Converted amountInTokens: 1000000
+[INFO] 2025-05-14T13:28:39.552Z - Connecting to Sui network: https://fullnode.testnet.sui.io
+[ERROR] 2025-05-14T13:28:40.188Z - Transaction execution failed: Incorrect number of arguments for 0xb0b992ecb2274927d9dc2ea4585cf26388e2474b86f085a823650441a98f158d::lightning_btc::mint
+[ERROR] 2025-05-14T13:28:40.189Z - Error details: {}
+[INFO] 2025-05-14T13:30:19.769Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-14T13:30:19.772Z - Converted amountInTokens: 1000000
+[INFO] 2025-05-14T13:30:19.794Z - Connecting to Sui network: https://fullnode.testnet.sui.io
+[ERROR] 2025-05-14T13:30:21.178Z - Transaction execution failed: Transaction validator signing failed due to issues with transaction inputs, please review the errors and try again:
+- Balance of gas object 504708488 is lower than the needed amount: 1000000000
+[ERROR] 2025-05-14T13:30:21.178Z - Error details: {
+  "code": -32002,
+  "type": "TransactionExecutionClientError"
+}
+[INFO] 2025-05-14T13:35:17.037Z - Starting mintTokens function with amountPaid: 100000
+[INFO] 2025-05-14T13:35:17.040Z - Converted amountInTokens: 100000
+[INFO] 2025-05-14T13:35:17.066Z - Connecting to Sui network: https://fullnode.testnet.sui.io
+[INFO] 2025-05-14T13:46:35.255Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-14T13:46:35.262Z - Converted amountInTokens: 1000000
+[INFO] 2025-05-14T13:46:35.285Z - Connecting to Sui network: https://fullnode.testnet.sui.io
+[INFO] 2025-05-14T13:51:19.505Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-14T13:51:19.510Z - Converted amountInTokens: 1000000
+[INFO] 2025-05-14T13:51:19.531Z - Connecting to Sui network: https://fullnode.testnet.sui.io
+[INFO] 2025-05-14T14:01:18.167Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-14T14:03:04.456Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-14T14:04:03.588Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-14T14:04:03.591Z - Converted amountInTokens: 1000000
+[INFO] 2025-05-14T14:04:03.601Z - Connecting to Sui network: https://fullnode.testnet.sui.io
+[INFO] 2025-05-14T14:05:49.248Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-14T14:05:49.251Z - Converted amountInTokens: 1000000
+[INFO] 2025-05-14T14:05:49.261Z - Connecting to Sui network: https://fullnode.testnet.sui.io
+[INFO] 2025-05-14T14:07:36.546Z - Starting mintTokens function with amountPaid: 1000000
+[INFO] 2025-05-14T14:07:36.549Z - Converted amountInTokens: 1000000
+[INFO] 2025-05-14T14:07:36.563Z - Connecting to Sui network: https://fullnode.testnet.sui.io

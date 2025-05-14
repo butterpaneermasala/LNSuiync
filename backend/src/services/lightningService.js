@@ -3,8 +3,8 @@ import fs from 'fs';
 
 async function main() {
     try {
-        const tls = fs.readFileSync('/home/satya/.polar/networks/1/volumes/lnd/alice/tls.cert');
-        const macaroon = fs.readFileSync('/home/satya/.polar/networks/1/volumes/lnd/alice/data/chain/bitcoin/regtest/admin.macaroon');
+        const tls = fs.readFileSync('/home/satya/.polar/networks/1/volumes/lnd/alice/tls.cert'); // path to tls of lnd
+        const macaroon = fs.readFileSync('/home/satya/.polar/networks/1/volumes/lnd/alice/data/chain/bitcoin/regtest/admin.macaroon'); // path to macaroon of lnd
         const socket = '127.0.0.1:10001';
 
         const { lnd } = await lnService.authenticatedLndGrpc({
