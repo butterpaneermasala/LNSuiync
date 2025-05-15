@@ -1,24 +1,135 @@
-import { useState, useEffect } from 'react';
-import { Github, Twitter, Mail, Copy, ExternalLink, CheckCircle, Loader2 } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { 
+  Github, Twitter, Mail, Copy, ExternalLink, CheckCircle, 
+  Loader2, ChevronDown, ChevronUp, Zap, ArrowRight, 
+  Bitcoin, RotateCw, Sparkles, Shield, RefreshCw, BookOpen, Info
+} from 'lucide-react';
 import './App.css';
 
-function App() {
-  const [amount, setAmount] = useState('');
-  const [recipientAddress, setRecipientAddress] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState('generate');
-  const [copied, setCopied] = useState(false);
-  const [showAbout, setShowAbout] = useState(false);
+// SVG Components
+const LightningIcon = () => (
+  <svg viewBox="0 0 24 24" className="lightning-icon">
+    <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+  </svg>
+);
 
-  // For animation effects
-  const [isVisible, setIsVisible] = useState(false);
-  
+const SuiLogo = () => (
+  <a href="https://cryptologos.cc/logos/sui-sui-logo.svg?v=040" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 64 64" className="sui-logo" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="32" cy="32" r="32" fill="#6FBCF0" />
+      <path d="M32 16c-8.8 0-16 7.2-16 16s7.2 16 16 16 16-7.2 16-16-7.2-16-16-16zm0 28c-6.6 0-12-5.4-12-12s5.4-12 12-12 12 5.4 12 12-5.4 12-12 12z" fill="#FFF" />
+      <path d="M32 24c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 12c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z" fill="#FFF" />
+    </svg>
+  </a>
+);
+
+
+type InvoiceStatus = 'pending' | 'paid' | 'expired';
+type InvoiceDetails = {
+  status: InvoiceStatus;
+  invoice: string;
+  id: string;
+  expiry: number;
+  amount?: number;
+  recipient?: string;
+  lnsAmount?: number;
+};
+
+type TransactionStep = {
+  title: string;
+  description: string;
+  status: 'pending' | 'completed' | 'failed';
+  icon: JSX.Element;
+};
+
+const API_BASE_URL = 'http://localhost:3000';
+
+function App() {
+  const [amount, setAmount] = useState<string>('');
+  const [recipientAddress, setRecipientAddress] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
+  const [activeTab, setActiveTab] = useState<'bridge' | 'check'>('bridge');
+  const [copied, setCopied] = useState<boolean>(false);
+  const [showAbout, setShowAbout] = useState<boolean>(false);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [invoiceDetails, setInvoiceDetails] = useState<InvoiceDetails | null>(null);
+  const [checkInvoiceId, setCheckInvoiceId] = useState<string>('');
+  const [transactionSteps, setTransactionSteps] = useState<TransactionStep[]>([]);
+  const [showAdvanced, setShowAdvanced] = useState<boolean>(false);
+  const [networkFee, setNetworkFee] = useState<string>('0.5');
+  const [slippage, setSlippage] = useState<string>('1.0');
+  const [isFlipped, setIsFlipped] = useState<boolean>(false);
+  const [paymentStatus, setPaymentStatus] = useState<string>('');
+  const [activeLearnTab, setActiveLearnTab] = useState<'lightning' | 'sui' | 'bridge'>('lightning');
+  const [showLearnModal, setShowLearnModal] = useState<boolean>(false);
+
+  // Conversion rate: 10^8 sats = 1 LNS
+  const SATS_TO_LNS = 100000000;
+
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
-  // Interface for invoice details
-  const [invoiceDetails, setInvoiceDetails] = useState(null);
+  useEffect(() => {
+    if (invoiceDetails) {
+      const steps: TransactionStep[] = [
+        {
+          title: 'Invoice Generated',
+          description: 'Waiting for payment',
+          status: invoiceDetails.status === 'paid' ? 'completed' : 'pending',
+          icon: <Bitcoin size={18} />
+        },
+        {
+          title: 'Payment Received',
+          description: 'Verifying on Lightning Network',
+          status: invoiceDetails.status === 'paid' ? 'completed' : 'pending',
+          icon: <LightningIcon />
+        },
+        {
+          title: 'Minting LNS Tokens',
+          description: 'Bridging to Sui blockchain',
+          status: invoiceDetails.status === 'paid' ? 'completed' : 'pending',
+          icon: <SuiLogo />
+        },
+        {
+          title: 'Transaction Complete',
+          description: 'Tokens sent to recipient',
+          status: invoiceDetails.status === 'paid' ? 'completed' : 'pending',
+          icon: <CheckCircle size={18} />
+        }
+      ];
+      setTransactionSteps(steps);
+
+      // Start polling for payment status if not already paid
+      if (invoiceDetails.status !== 'paid') {
+        const interval = setInterval(() => {
+          checkInvoiceStatus(invoiceDetails.id);
+        }, 5000); // Check every 5 seconds
+
+        return () => clearInterval(interval);
+      }
+    }
+  }, [invoiceDetails]);
+
+  const checkInvoiceStatus = async (invoiceId: string) => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/invoice-status/${invoiceId}`);
+      if (!response.ok) {
+        throw new Error('Failed to check invoice status');
+      }
+      const data = await response.json();
+      
+      if (data.paid) {
+        setInvoiceDetails(prev => prev ? {
+          ...prev,
+          status: 'paid'
+        } : null);
+        setPaymentStatus('Payment confirmed! Tokens will be minted shortly.');
+      }
+    } catch (error) {
+      console.error('Error checking invoice status:', error);
+    }
+  };
 
   const handleGenerateInvoice = async () => {
     if (!amount || Number(amount) <= 0) {
@@ -32,261 +143,726 @@ function App() {
     }
 
     setLoading(true);
+    setInvoiceDetails(null);
+    setPaymentStatus('');
+
     try {
-      // In a real app, this would be your actual API endpoint
-      // For demo purposes, we'll simulate the API response
-      setTimeout(() => {
-        setInvoiceDetails({
-          status: 'Pending',
-          invoice: 'lnbc10u1p3xhwjhpp5yztkwjcz5ftl5laxkav9ksjt6w8f0qmk0wxymsgy289yv5xw9qhsdqqcqzpgxqyz5vqsp5usyc4lk9chsfp53kvcnvq456ganh60d89spqgzm93q9tkvjz3fq9qyyssqmfn3kn66xx3uijl4hmr5j33l5g5h2szmwjtvs8f0g4uvj6jnl3uyjvpgnh832v9wfgk5qvksq8jlpxms6d60dztk93feflyuz07utkcpv7kx7v',
-          expiry: '60 minutes'
-        });
-        setLoading(false);
-      }, 1500);
+      const response = await fetch(`${API_BASE_URL}/generate-invoice`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          amount: Number(amount),
+          recipientAddress
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to generate invoice');
+      }
+
+      const data = await response.json();
+      setInvoiceDetails({
+        ...data,
+        amount: Number(amount),
+        recipient: recipientAddress,
+        lnsAmount: Number(amount) / SATS_TO_LNS,
+        status: 'pending'
+      });
+      setPaymentStatus('Invoice generated. Waiting for payment...');
     } catch (error) {
       console.error('Error:', error);
-      alert('An error occurred while generating the invoice.');
+      alert('Failed to generate invoice. Please try again.');
+    } finally {
       setLoading(false);
     }
   };
 
-  const copyToClipboard = (text) => {
+  const handleCheckStatus = async () => {
+    if (!checkInvoiceId) {
+      alert('Please enter an invoice ID.');
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/invoice-status/${checkInvoiceId}`);
+      if (!response.ok) {
+        throw new Error('Failed to check invoice status');
+      }
+      const data = await response.json();
+      
+      // Format a more detailed response
+      const statusMessage = `
+        Status: ${data.paid ? 'Paid ✓' : 'Pending ⏱️'}
+        Amount: ${data.amount.toLocaleString()} sats
+        ${data.paid ? `Confirmed: ${new Date(data.confirmedAt * 1000).toLocaleString()}` : ''}
+      `;
+      
+      alert(statusMessage);
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to check invoice status. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const truncateMiddle = (str: string, front = 6, back = 4) =>
+    str.length > front + back ? `${str.slice(0, front)}...${str.slice(-back)}` : str;
+
+  const formatExpiry = (timestamp: number) => {
+    const now = Math.floor(Date.now() / 1000);
+    const diff = timestamp - now;
+    if (diff <= 0) return 'Expired';
+    
+    const hours = Math.floor(diff / 3600);
+    const minutes = Math.floor((diff % 3600) / 60);
+    
+    return `${hours > 0 ? `${hours}h ` : ''}${minutes}m`;
+  };
+
+  const calculateReceiveAmount = () => {
+    const amountNum = parseFloat(amount) || 0;
+    const feeNum = parseFloat(networkFee) || 0;
+    const lnsAmount = (amountNum - (amountNum * feeNum / 100)) / SATS_TO_LNS;
+    return lnsAmount.toFixed(8);
+  };
+
+  const handleFlip = () => {
+    setIsFlipped(!isFlipped);
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-blue-500 to-indigo-700 flex flex-col items-center justify-center p-4">
+    <div className="app-container">
+      {/* Animated Background */}
+      <div className="animated-background">
+        <div className="lightning-bolt"></div>
+        <div className="sui-orb"></div>
+        <div className="floating-dots"></div>
+      </div>
+
       {/* Navigation Bar */}
-      <nav className="w-full max-w-6xl mb-6 flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <div className="h-8 w-8 bg-yellow-400 rounded-full animate-pulse"></div>
-          <span className="text-white font-bold text-xl">LNSuiync</span>
+      <nav className="nav-bar glass">
+        <div className="logo-section">
+          <span className="logo-text">LNSuinyc</span>
         </div>
-        <div className="flex gap-4">
-          <button onClick={() => setShowAbout(!showAbout)} className="text-white hover:text-yellow-200 transition-colors">
-            About
+        <div className="nav-links">
+          <button onClick={() => setShowLearnModal(true)} className="nav-button">
+            <BookOpen size={18} />
+            <span>Learn</span>
           </button>
-          <a href="https://Github.com/butterpaneermasala/LNSuiync" target="_blank" rel="noopener noreferrer" className="text-white hover:text-yellow-200 transition-colors">
-            <Github size={20} />
+          <button onClick={() => setShowAbout(!showAbout)} className="nav-button">
+            Docs
+          </button>
+          <a
+            href="https://github.com/organization/LNSuinyc"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-button"
+          >
+            <Github size={18} />
           </a>
+          <button className="connect-wallet">
+            Connect Wallet
+          </button>
         </div>
       </nav>
 
       {/* Main Content */}
-      <div className={`transition-all duration-700 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <div className="glass-container bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-white border-opacity-20 w-full max-w-xl">
-          {/* About Modal */}
-          {showAbout && (
-            <div className="mb-8 text-left bg-white bg-opacity-10 p-6 rounded-xl animate-fadeIn">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-xl font-bold text-white">About LNSuiync</h2>
-                <button onClick={() => setShowAbout(false)} className="text-white opacity-70 hover:opacity-100">
-                  ✕
-                </button>
-              </div>
-              <p className="text-white mb-4">
-                LNSuiync is a bridge between Lightning Network and Sui blockchain, allowing for seamless cross-chain transactions.
-                Our mission is to create a frictionless experience for transferring value across different blockchain ecosystems.
-              </p>
-              <div className="flex items-center gap-4 text-white">
-                <span>Connect with us:</span>
-                <a href="https://Github.com/butterpaneermasala/LNSuiync" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-200 transition-colors">
-                  <Github size={20} />
-                </a>
-                <a href="https://twitter.com/LNSuiync" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-200 transition-colors">
-                  <Twitter size={20} />
-                </a>
-                <a href="mailto:contact@lnsuiync.com" className="hover:text-yellow-200 transition-colors">
-                  <Mail size={20} />
-                </a>
-              </div>
-            </div>
-          )}
-
-          <h1 className="text-3xl font-bold mb-2 text-white text-center">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-yellow-500">LN to Sui Bridge</span>
+      <div className={`main-content ${isVisible ? 'visible' : ''}`}>
+        <div className="bridge-container">
+          <h1 className="title">
+            <span className="title-gradient">Lightning to Sui Bridge</span>
           </h1>
-          <p className="text-white opacity-80 mb-6 text-center">
-            Bridge your Bitcoin Lightning funds to the Sui blockchain
-          </p>
-          
-          {/* Tabs */}
-          <div className="flex mb-6 bg-white bg-opacity-10 rounded-lg p-1">
-            <button
-              className={`flex-1 py-2 rounded-md transition-all ${activeTab === 'generate' ? 'bg-white bg-opacity-20 text-white' : 'text-white text-opacity-70'}`}
-              onClick={() => setActiveTab('generate')}
-            >
-              Generate Invoice
-            </button>
-            <button
-              className={`flex-1 py-2 rounded-md transition-all ${activeTab === 'check' ? 'bg-white bg-opacity-20 text-white' : 'text-white text-opacity-70'}`}
-              onClick={() => setActiveTab('check')}
-            >
-              Check Status
-            </button>
-          </div>
+          <p className="subtitle">Convert Bitcoin Lightning payments to LNS tokens on Sui blockchain</p>
 
-          {activeTab === 'generate' ? (
-            <div className="space-y-4 animate-fadeIn">
-              <div>
-                <label htmlFor="amount" className="block text-white mb-1 text-left">Amount (in Satoshis):</label>
-                <input
-                  type="number"
-                  id="amount"
-                  value={amount}
-                  onChange={(e) => setAmount(e.target.value)}
-                  placeholder="Enter amount"
-                  className="w-full bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg px-4 py-3 text-white placeholder-white placeholder-opacity-50 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
-                />
-              </div>
-              <div>
-                <label htmlFor="recipientAddress" className="block text-white mb-1 text-left">Recipient Sui Address:</label>
-                <input
-                  type="text"
-                  id="recipientAddress"
-                  value={recipientAddress}
-                  onChange={(e) => setRecipientAddress(e.target.value)}
-                  placeholder="Enter recipient address"
-                  className="w-full bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg px-4 py-3 text-white placeholder-white placeholder-opacity-50 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
-                />
-              </div>
-              <button 
-                onClick={handleGenerateInvoice} 
-                disabled={loading}
-                className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold py-3 px-4 rounded-lg transition-all transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none mt-4"
-              >
-                {loading ? (
-                  <div className="flex items-center justify-center gap-2">
-                    <Loader2 className="animate-spin" size={20} />
-                    <span>Generating...</span>
+          {/* Bridge Card */}
+          <div className="bridge-card-container">
+            <div className={`bridge-card ${isFlipped ? 'flipped' : ''}`}>
+              {/* Front Side - Bridge Form */}
+              <div className="card-front glass">
+                <div className="card-header">
+                  <div className="card-tabs">
+                    <button
+                      className={`tab-button ${activeTab === 'bridge' ? 'active' : ''}`}
+                      onClick={() => setActiveTab('bridge')}
+                    >
+                      Bridge
+                    </button>
+                    <button
+                      className={`tab-button ${activeTab === 'check' ? 'active' : ''}`}
+                      onClick={() => setActiveTab('check')}
+                    >
+                      Check Status
+                    </button>
                   </div>
-                ) : 'Generate Lightning Invoice'}
-              </button>
-            </div>
-          ) : (
-            <div className="space-y-4 animate-fadeIn">
-              <div>
-                <label htmlFor="checkInvoice" className="block text-white mb-1 text-left">Invoice ID or Hash:</label>
-                <input
-                  type="text"
-                  id="checkInvoice"
-                  placeholder="Enter invoice ID"
-                  className="w-full bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg px-4 py-3 text-white placeholder-white placeholder-opacity-50 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
-                />
+                  <button className="flip-button" onClick={handleFlip}>
+                    <RotateCw size={16} />
+                    <span>Verification</span>
+                  </button>
+                </div>
+
+                <div className="card-content">
+                  {activeTab === 'bridge' ? (
+                    <>
+                      <div className="input-group">
+                        <label>You pay</label>
+                        <div className="input-container">
+                          <input
+                            type="number"
+                            value={amount}
+                            onChange={(e) => setAmount(e.target.value)}
+                            placeholder="0"
+                          />
+                          <div className="input-suffix">
+                            <Bitcoin size={16} />
+                            <span>sats</span>
+                          </div>
+                        </div>
+                        <div className="input-hint">1 LNS = 100,000,000 sats</div>
+                      </div>
+
+                      <div className="swap-arrow">
+                        <ArrowRight size={24} />
+                      </div>
+
+                      <div className="input-group">
+                        <label>You receive</label>
+                        <div className="input-container receive">
+                          <input
+                            type="text"
+                            value={calculateReceiveAmount()}
+                            readOnly
+                            placeholder="0"
+                          />
+                          <div className="input-suffix">
+                            <SuiLogo />
+                            <span>LNS</span>
+                          </div>
+                        </div>
+                        <div className="receive-details">
+                          <span>Rate: 10<sup>8</sup> sats = 1 LNS</span>
+                          <span>Fee: {networkFee}%</span>
+                        </div>
+                      </div>
+
+                      <div className="input-group">
+                        <label>Recipient Sui Address</label>
+                        <div className="input-container">
+                          <input
+                            type="text"
+                            value={recipientAddress}
+                            onChange={(e) => setRecipientAddress(e.target.value)}
+                            placeholder="0x..."
+                            className="address-input"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="advanced-section">
+                        <button 
+                          className="advanced-toggle"
+                          onClick={() => setShowAdvanced(!showAdvanced)}
+                        >
+                          {showAdvanced ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                          <span>Advanced Settings</span>
+                        </button>
+                        {showAdvanced && (
+                          <div className="advanced-options glass">
+                            <div className="option-row">
+                              <label>
+                                <Shield size={16} />
+                                <span>Network Fee</span>
+                              </label>
+                              <select value={networkFee} onChange={(e) => setNetworkFee(e.target.value)}>
+                                <option value="0.5">0.5% (Recommended)</option>
+                                <option value="1.0">1.0%</option>
+                                <option value="1.5">1.5%</option>
+                              </select>
+                            </div>
+                            <div className="option-row">
+                              <label>
+                                <Sparkles size={16} />
+                                <span>Slippage</span>
+                              </label>
+                              <select value={slippage} onChange={(e) => setSlippage(e.target.value)}>
+                                <option value="0.5">0.5%</option>
+                                <option value="1.0">1.0% (Default)</option>
+                                <option value="2.0">2.0%</option>
+                              </select>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+
+                      {paymentStatus && (
+                        <div className="status-message">
+                          {paymentStatus}
+                        </div>
+                      )}
+
+                      <button 
+                        onClick={handleGenerateInvoice} 
+                        disabled={loading || !amount || !recipientAddress}
+                        className="primary-button glow-on-hover"
+                      >
+                        {loading ? (
+                          <div className="loading-wrapper">
+                            <Loader2 className="loading-spin" size={20} />
+                            <span>Generating Invoice...</span>
+                          </div>
+                        ) : (
+                          <>
+                            <LightningIcon />
+                            <span>Generate Lightning Invoice</span>
+                          </>
+                        )}
+                      </button>
+                    </>
+                  ) : (
+                    <div className="check-status">
+                      <div className="input-group">
+                        <label>Invoice ID</label>
+                        <div className="input-container">
+                          <input
+                            type="text"
+                            value={checkInvoiceId}
+                            onChange={(e) => setCheckInvoiceId(e.target.value)}
+                            placeholder="Enter invoice ID"
+                          />
+                        </div>
+                      </div>
+                      
+                      <button 
+                        onClick={handleCheckStatus} 
+                        disabled={loading || !checkInvoiceId}
+                        className="secondary-button"
+                      >
+                        {loading ? (
+                          <div className="loading-wrapper">
+                            <Loader2 className="loading-spin" size={20} />
+                            <span>Checking Status...</span>
+                          </div>
+                        ) : (
+                          <>
+                            <RefreshCw size={18} />
+                            <span>Check Status</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  )}
+                </div>
               </div>
-              <button className="w-full bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white font-bold py-3 px-4 rounded-lg transition-all transform hover:scale-105 active:scale-95">
-                Check Status
-              </button>
+
+              {/* Back Side - Verification Info */}
+              <div className="card-back glass">
+                <div className="card-header">
+                  <h3>Transaction Verification</h3>
+                  <button className="flip-button" onClick={handleFlip}>
+                    <RotateCw size={16} />
+                    <span>Back to Bridge</span>
+                  </button>
+                </div>
+                
+                <div className="card-content verification-content">
+                  {invoiceDetails ? (
+                    <>
+                      <div className="verification-grid">
+                        <div className="verification-item">
+                          <span>Invoice ID</span>
+                          <code>{invoiceDetails.id}</code>
+                        </div>
+                        <div className="verification-item">
+                          <span>Amount</span>
+                          <code>{invoiceDetails.amount?.toLocaleString()} sats</code>
+                        </div>
+                        <div className="verification-item">
+                          <span>Recipient</span>
+                          <code>{truncateMiddle(invoiceDetails.recipient || '')}</code>
+                        </div>
+                        <div className="verification-item">
+                          <span>Status</span>
+                          <code className={invoiceDetails.status}>
+                            {invoiceDetails.status === 'paid' ? 'Confirmed' : 'Pending'}
+                          </code>
+                        </div>
+                      </div>
+                      
+                      <div className="security-badge">
+                        <Shield size={20} />
+                        <span>Secured by Lightning Network and Sui Blockchain</span>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="empty-state">
+                      <p>Generate an invoice to see transaction details</p>
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
-          )}
+          </div>
 
           {/* Invoice Details */}
           {invoiceDetails && (
-            <div className="mt-8 animate-fadeIn">
-              <div className="bg-white bg-opacity-10 rounded-xl p-4 text-left">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-white font-bold text-lg">Invoice Generated</h3>
-                  <span className="bg-green-500 bg-opacity-20 text-green-300 text-sm px-2 py-1 rounded-full">
-                    {invoiceDetails.status}
-                  </span>
-                </div>
-                <div className="mb-4">
-                  <p className="text-white opacity-70 text-sm mb-1">Lightning Invoice:</p>
-                  <div className="flex items-center bg-black bg-opacity-30 p-3 rounded-lg">
-                    <div className="overflow-hidden overflow-ellipsis text-white text-sm flex-1">
-                      {invoiceDetails.invoice.substring(0, 30)}...{invoiceDetails.invoice.substring(invoiceDetails.invoice.length - 10)}
+            <div className="transaction-details glass">
+              <h3>Transaction Progress</h3>
+              
+              <div className="progress-steps">
+                {transactionSteps.map((step, index) => (
+                  <div key={index} className={`step ${step.status}`}>
+                    <div className="step-icon">
+                      {step.status === 'completed' ? (
+                        <CheckCircle size={16} />
+                      ) : (
+                        <span className="step-icon-content">
+                          {step.icon}
+                        </span>
+                      )}
                     </div>
-                    <button 
-                      onClick={() => copyToClipboard(invoiceDetails.invoice)}
-                      className="ml-2 text-white opacity-70 hover:opacity-100 transition-all"
-                    >
-                      {copied ? <CheckCircle size={18} className="text-green-400" /> : <Copy size={18} />}
-                    </button>
+                    <div className="step-content">
+                      <h4>{step.title}</h4>
+                      <p>{step.description}</p>
+                    </div>
                   </div>
+                ))}
+              </div>
+
+              <div className="detail-grid">
+                <div className="detail-item">
+                  <span>Invoice Amount</span>
+                  <span>{invoiceDetails.amount?.toLocaleString()} sats</span>
                 </div>
-                <div className="space-y-2 text-white text-sm">
-                  <div className="flex justify-between">
-                    <span className="opacity-70">Amount:</span>
-                    <span>{amount} satoshis</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="opacity-70">Recipient:</span>
-                    <span className="overflow-hidden overflow-ellipsis max-w-xs">
-                      {recipientAddress.substring(0, 8)}...{recipientAddress.substring(recipientAddress.length - 8)}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="opacity-70">Expiry:</span>
-                    <span>60 minutes</span>
-                  </div>
+                <div className="detail-item">
+                  <span>Receive Amount</span>
+                  <span>{invoiceDetails.lnsAmount?.toFixed(8)} LNS</span>
                 </div>
-                <div className="mt-4 flex gap-2">
-                  <button className="flex-1 bg-transparent border border-white border-opacity-20 text-white py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all flex items-center justify-center gap-1">
-                    <ExternalLink size={16} />
-                    <span>Open in Wallet</span>
-                  </button>
-                  <button 
-                    onClick={() => copyToClipboard(invoiceDetails.invoice)}
-                    className="flex-1 bg-transparent border border-white border-opacity-20 text-white py-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all flex items-center justify-center gap-1"
-                  >
-                    <Copy size={16} />
-                    <span>Copy Invoice</span>
-                  </button>
+                <div className="detail-item">
+                  <span>Recipient</span>
+                  <span>{truncateMiddle(invoiceDetails.recipient || '')}</span>
                 </div>
+                <div className="detail-item">
+                  <span>Expires in</span>
+                  <span>{formatExpiry(invoiceDetails.expiry)}</span>
+                </div>
+              </div>
+
+              <div className="invoice-actions">
+                <button 
+                  onClick={() => copyToClipboard(invoiceDetails.invoice)} 
+                  className="action-btn"
+                >
+                  <Copy size={16} />
+                  <span>{copied ? 'Copied!' : 'Copy Invoice'}</span>
+                </button>
+                <a
+                  href={`lightning:${invoiceDetails.invoice}`}
+                  className="action-btn primary"
+                >
+                  <ExternalLink size={16} />
+                  <span>Open in Wallet</span>
+                </a>
               </div>
             </div>
           )}
-
-          {/* Features */}
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-white bg-opacity-10 rounded-lg p-4 border border-white border-opacity-10 transform transition-all hover:scale-105 hover:bg-opacity-20">
-              <div className="w-10 h-10 bg-yellow-400 bg-opacity-20 rounded-lg flex items-center justify-center mb-3">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-white font-medium mb-1">Fast Transfers</h3>
-              <p className="text-white opacity-70 text-sm">Lightning-fast transfers between Bitcoin and Sui networks</p>
-            </div>
-            <div className="bg-white bg-opacity-10 rounded-lg p-4 border border-white border-opacity-10 transform transition-all hover:scale-105 hover:bg-opacity-20">
-              <div className="w-10 h-10 bg-blue-400 bg-opacity-20 rounded-lg flex items-center justify-center mb-3">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
-              </div>
-              <h3 className="text-white font-medium mb-1">Secure Bridge</h3>
-              <p className="text-white opacity-70 text-sm">End-to-end encrypted transactions for maximum security</p>
-            </div>
-            <div className="bg-white bg-opacity-10 rounded-lg p-4 border border-white border-opacity-10 transform transition-all hover:scale-105 hover:bg-opacity-20">
-              <div className="w-10 h-10 bg-green-400 bg-opacity-20 rounded-lg flex items-center justify-center mb-3">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                </svg>
-              </div>
-              <h3 className="text-white font-medium mb-1">Low Fees</h3>
-              <p className="text-white opacity-70 text-sm">Minimal fees for cross-chain transfers</p>
-            </div>
-          </div>
         </div>
       </div>
 
       {/* Footer */}
-      <footer className="mt-8 text-white opacity-70 text-sm flex flex-col items-center">
-        <div className="flex gap-6 mb-4">
-          <a href="https://Github.com/butterpaneermasala/LNSuiync" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-200 transition-colors">
-            <Github size={18} />
-          </a>
-          <a href="https://twitter.com/LNSuiync" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-200 transition-colors">
-            <Twitter size={18} />
-          </a>
-          <a href="mailto:contact@lnsuiync.com" className="hover:text-yellow-200 transition-colors">
-            <Mail size={18} />
-          </a>
+      <footer className="footer glass">
+        <div className="footer-content">
+          <div className="footer-logo">
+            <span>LNSuinyc Bridge</span>
+          </div>
+          <div className="footer-links">
+            <a href="https://github.com/organization/LNSuinyc" target="_blank" rel="noopener noreferrer">
+              Github
+            </a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+              Twitter
+            </a>
+            <a href="mailto:contact@lnsuinyc.com">Contact</a>
+            <button onClick={() => setShowAbout(true)}>Documentation</button>
+          </div>
         </div>
-        <p>© 2025 LNSuiync. All rights reserved.</p>
+        <div className="footer-disclaimer">
+          <p>LNSuinyc Bridge is an open-source project. Use at your own risk.</p>
+        </div>
       </footer>
+
+      {/* About Modal */}
+      {showAbout && (
+        <div className="about-modal-overlay" onClick={() => setShowAbout(false)}>
+          <div className="about-modal glass" onClick={(e) => e.stopPropagation()}>
+            <div className="about-header">
+              <h2>LNSuinyc Bridge Documentation</h2>
+              <button onClick={() => setShowAbout(false)} className="close-button">
+                ✕
+              </button>
+            </div>
+            <div className="docs-section">
+              <h3>How It Works</h3>
+              <p>
+                The LNSuinyc Bridge allows you to convert Bitcoin Lightning Network payments to LNS tokens on the Sui blockchain at a 1:10<sup>8</sup> ratio (100,000,000 sats = 1 LNS).
+              </p>
+              
+              <div className="process-flow">
+                <div className="flow-step">
+                  <div className="flow-icon">
+                    <Bitcoin size={20} />
+                  </div>
+                  <span>Pay Lightning Invoice</span>
+                </div>
+                <ArrowRight size={16} className="flow-arrow"/>
+                <div className="flow-step">
+                  <div className="flow-icon">
+                    <LightningIcon />
+                  </div>
+                  <span>Payment Verification</span>
+                </div>
+                <ArrowRight size={16} className="flow-arrow"/>
+                <div className="flow-step">
+                  <div className="flow-icon">
+                    <SuiLogo />
+                  </div>
+                  <span>LNS Tokens Minted</span>
+                </div>
+              </div>
+              
+              <h3>Conversion Rate</h3>
+              <p>
+                The fixed conversion rate is <strong>100,000,000 satoshis = 1 LNS token</strong>. This ensures 1:1 value representation between Bitcoin and the wrapped LNS token on Sui.
+              </p>
+              
+              <h3>Security</h3>
+              <p>
+                Every transaction is secured by both the Lightning Network's payment verification system and Sui blockchain's consensus mechanisms, creating a trustless bridge between the two networks.
+              </p>
+              
+              <h3>Fees</h3>
+              <p>
+                The bridge charges a small network fee to cover Lightning routing costs and Sui transaction fees. The default fee is 0.5%.
+              </p>
+            </div>
+            <div className="social-links">
+              <span>Connect with us:</span>
+              <a href="https://github.com/organization/LNSuinyc" target="_blank" rel="noopener noreferrer">
+                <Github size={18} />
+              </a>
+              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+                <Twitter size={18} />
+              </a>
+              <a href="mailto:contact@lnsuinyc.com">
+                <Mail size={18} />
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Learn Modal */}
+      {showLearnModal && (
+        <div className="learn-modal-overlay" onClick={() => setShowLearnModal(false)}>
+          <div className="learn-modal glass" onClick={(e) => e.stopPropagation()}>
+            <div className="learn-header">
+              <h2>Learn About the Technology</h2>
+              <button onClick={() => setShowLearnModal(false)} className="close-button">
+                ✕
+              </button>
+            </div>
+            
+            <div className="learn-tabs">
+              <button 
+                className={`learn-tab ${activeLearnTab === 'lightning' ? 'active' : ''}`}
+                onClick={() => setActiveLearnTab('lightning')}
+              >
+                <Zap size={16} />
+                <span>Lightning Network</span>
+              </button>
+              <button 
+                className={`learn-tab ${activeLearnTab === 'sui' ? 'active' : ''}`}
+                onClick={() => setActiveLearnTab('sui')}
+              >
+                <SuiLogo />
+                <span>Sui Blockchain</span>
+              </button>
+              <button 
+                className={`learn-tab ${activeLearnTab === 'bridge' ? 'active' : ''}`}
+                onClick={() => setActiveLearnTab('bridge')}
+              >
+                <ArrowRight size={16} />
+                <span>The Bridge</span>
+              </button>
+            </div>
+            
+            <div className="learn-content">
+              {activeLearnTab === 'lightning' && (
+                <div className="learn-section">
+                  <h3>What is the Lightning Network?</h3>
+                  <p>
+                    The Lightning Network is a "Layer 2" payment protocol layered on top of Bitcoin (and other blockchains). 
+                    It enables fast transactions between participating nodes and has been proposed as a solution to the 
+                    Bitcoin scalability problem.
+                  </p>
+                  
+                  <div className="feature-card">
+                    <div className="feature-icon">
+                      <Zap size={24} />
+                    </div>
+                    <div className="feature-content">
+                      <h4>Instant Payments</h4>
+                      <p>
+                        Lightning-fast blockchain payments without worrying about block confirmation times.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="feature-card">
+                    <div className="feature-icon">
+                      <Bitcoin size={24} />
+                    </div>
+                    <div className="feature-content">
+                      <h4>Scalability</h4>
+                      <p>
+                        Capable of millions to billions of transactions per second across the network.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="feature-card">
+                    <div className="feature-icon">
+                      <Shield size={24} />
+                    </div>
+                    <div className="feature-content">
+                      <h4>Low Fees</h4>
+                      <p>
+                        Transaction fees are extremely low because they don't require on-chain settlement.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+              
+              {activeLearnTab === 'sui' && (
+                <div className="learn-section">
+                  <h3>What is Sui Blockchain?</h3>
+                  <p>
+                    Sui is a decentralized proof-of-stake blockchain with horizontally scalable processing and storage. 
+                    It's designed to enable creators and developers to build experiences that cater to the next billion 
+                    users in web3.
+                  </p>
+                  
+                  <div className="feature-card">
+                    <div className="feature-icon">
+                      <Sparkles size={24} />
+                    </div>
+                    <div className="feature-content">
+                      <h4>High Performance</h4>
+                      <p>
+                        Sui scales horizontally to meet application demand, eliminating bottlenecks.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="feature-card">
+                    <div className="feature-icon">
+                      <RotateCw size={24} />
+                    </div>
+                    <div className="feature-content">
+                      <h4>Instant Settlement</h4>
+                      <p>
+                        Transactions are confirmed and finalized in real-time.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="feature-card">
+                    <div className="feature-icon">
+                      <Shield size={24} />
+                    </div>
+                    <div className="feature-content">
+                      <h4>Secure</h4>
+                      <p>
+                        Built with Move, a safe language for smart contracts.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+              
+              {activeLearnTab === 'bridge' && (
+                <div className="learn-section">
+                  <h3>How the Bridge Works</h3>
+                  <p>
+                    The LNSuinyc Bridge creates a seamless connection between Bitcoin's Lightning Network and the Sui blockchain, 
+                    allowing you to convert Lightning payments into LNS tokens that can be used in the Sui ecosystem.
+                  </p>
+                  
+                  <div className="process-flow">
+                    <div className="flow-step">
+                      <div className="flow-icon">
+                        <Bitcoin size={20} />
+                      </div>
+                      <span>1. User pays Lightning invoice</span>
+                    </div>
+                    <ArrowRight size={16} className="flow-arrow"/>
+                    <div className="flow-step">
+                      <div className="flow-icon">
+                        <LightningIcon />
+                      </div>
+                      <span>2. Payment verified on Lightning</span>
+                    </div>
+                    <ArrowRight size={16} className="flow-arrow"/>
+                    <div className="flow-step">
+                      <div className="flow-icon">
+                        <SuiLogo />
+                      </div>
+                      <span>3. Equivalent LNS tokens minted on Sui</span>
+                    </div>
+                    <ArrowRight size={16} className="flow-arrow"/>
+                    <div className="flow-step">
+                      <div className="flow-icon">
+                        <CheckCircle size={20} />
+                      </div>
+                      <span>4. Tokens sent to recipient address</span>
+                    </div>
+                  </div>
+                  
+                  <h4>Why Use the Bridge?</h4>
+                  <ul className="benefits-list">
+                    <li>
+                      <CheckCircle size={16} />
+                      <span>Access Sui DeFi with Bitcoin liquidity</span>
+                    </li>
+                    <li>
+                      <CheckCircle size={16} />
+                      <span>Fast and low-cost transactions</span>
+                    </li>
+                    <li>
+                      <CheckCircle size={16} />
+                      <span>Secure and trustless operation</span>
+                    </li>
+                    <li>
+                      <CheckCircle size={16} />
+                      <span>Fixed 1:10<sup>8</sup> conversion rate</span>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
