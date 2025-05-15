@@ -42,14 +42,14 @@ module lntosui::lightning_btc {
         let coin = coin::mint(treasury_cap, amount, ctx);
         transfer::public_transfer(coin, recipient)
     }
-    // Inside your Move module (e.g., lntosui::lightning_btc)
+    // // Inside your Move module (e.g., lntosui::lightning_btc)
 
-    public entry fun burn(
-        treasury_cap: &mut TreasuryCap<LIGHTNING_BTC>,
-        coin: Coin<LIGHTNING_BTC>,
-    ) {
-        coin::burn(treasury_cap, coin);
-    }
+    // public entry fun burn(
+    //     treasury_cap: &mut TreasuryCap<LIGHTNING_BTC>,
+    //     coin: Coin<LIGHTNING_BTC>,
+    // ) {
+    //     coin::burn(treasury_cap, coin);
+    // }
 
 
 

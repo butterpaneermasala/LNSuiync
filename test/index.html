@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LN to Sui Web App - UI/UX Enhancement</title>
+<style>
+  /* Reset */
+  * {
+    box-sizing: border-box;
+  }
+  body, html {
+    margin: 0; padding: 0;
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background: #1a202c;
+    color: white;
+  }
+
+  /* Container flex center */
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+    width: 100%;
+  }
+
+  h2 {
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  /* Gradient card */
+  .card {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    padding: 2rem;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, #7e3ff2, #3b82f6, #4f46e5);
+    overflow: hidden;
+  }
+
+  /* Blurry circles */
+  .blur-circle-yellow, .blur-circle-blue {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(48px);
+    opacity: 0.2;
+  }
+  .blur-circle-yellow {
+    top: 2.5rem;
+    left: 2.5rem;
+    width: 8rem;
+    height: 8rem;
+    background-color: #facc15; /* yellow-400 */
+  }
+  .blur-circle-blue {
+    bottom: 2.5rem;
+    right: 2.5rem;
+    width: 8rem;
+    height: 8rem;
+    background-color: #60a5fa; /* blue-400 */
+  }
+
+  /* Glass morphism panel */
+  .glass-panel {
+    position: relative;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Header flex */
+  .header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .yellow-circle {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #facc15; /* yellow-400 */
+    border-radius: 9999px;
+  }
+  .header-title {
+    font-weight: 700;
+    color: white;
+  }
+  .header-right {
+    display: flex;
+    gap: 0.75rem;
+  }
+  .small-circle {
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 9999px;
+  }
+
+  /* Main title with gradient text */
+  .main-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    background: linear-gradient(to right, #fbbf24, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Subtitle */
+  .subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  /* Tabs */
+  .tabs {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .tab {
+    flex: 1;
+    padding: 0.5rem 0;
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+  }
+  .tab.active {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .tab.inactive {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* Info blocks */
+  .info-block {
+    margin-bottom: 1rem;
+  }
+  label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.25rem;
+  }
+  .info-content {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    color: white;
+    font-size: 0.875rem;
+  }
+  .info-content-muted {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+  }
+
+  /* Button */
+  .btn-generate {
+    background: linear-gradient(to right, #fbbf24, #f59e0b);
+    color: black;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    text-align: center;
+    font-size: 0.875rem;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  /* Features grid */
+  .features-grid {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  .feature-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+  }
+  .feature-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 0.5rem;
+    margin: 0 auto 0.25rem auto;
+  }
+  .feature-yellow {
+    background-color: rgba(250, 204, 21, 0.2);
+  }
+  .feature-blue {
+    background-color: rgba(96, 165, 250, 0.2);
+  }
+  .feature-green {
+    background-color: rgba(34, 197, 94, 0.2);
+  }
+  .feature-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Footer text */
+  .footer-text {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #9ca3af;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h2>LN to Sui Web App - UI/UX Enhancement</h2>
+    <div class="card">
+      <div class="blur-circle-yellow"></div>
+      <div class="blur-circle-blue"></div>
+
+      <div class="glass-panel">
+        <div class="header-flex">
+          <div class="header-left">
+            <div class="yellow-circle"></div>
+            <h3 class="header-title">LNSuiync</h3>
+          </div>
+          <div class="header-right">
+            <div class="small-circle"></div>
+            <div class="small-circle"></div>
+          </div>
+        </div>
+
+        <h1 class="main-title">LN to Sui Bridge</h1>
+        <p class="subtitle">Bridge your Bitcoin Lightning funds to the Sui blockchain</p>
+
+        <div class="tabs">
+          <div class="tab active">Generate Invoice</div>
+          <div class="tab inactive">Check Status</div>
+        </div>
+
+        <div class="info-block">
+          <label>Amount (in Satoshis):</label>
+          <div class="info-content">10000</div>
+        </div>
+
+        <div class="info-block">
+          <label>Recipient Sui Address:</label>
+          <div class="info-content info-content-muted">0x7fd27995be43c275</div>
+        </div>
+
+        <div class="btn-generate">Generate Lightning Invoice</div>
+
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon feature-yellow"></div>
+            <div class="feature-text">Fast Transfers</div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon feature-blue"></div>
+            <div class="feature-text">Secure Bridge</div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon feature-green"></div>
+            <div class="feature-text">Low Fees</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-text">
+      The enhanced design includes improved UI/UX with modern glass morphism, gradients, and animations
+    </div>
+  </div>
+</body>
+</html>

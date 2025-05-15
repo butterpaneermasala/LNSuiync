@@ -10,12 +10,12 @@ import {
     PACKAGE_ID,
     MODULE,
     RECIPIENT_ADDRESS,
-} from '../config/constants.js'; 
+} from '../config/suiConfig.js'; 
 
-export const mintTokens = async (amountPaid) => {
-    logInfo(`Starting mintTokens function with amountPaid: ${amountPaid}`);
+export const mintTokens = async (amountPaid, recipientAddress) => {
+    logInfo(`Starting mintTokens function with amountPaid: ${amountPaid} and recipientAddress: ${recipientAddress}`);
 
-    if (!TREASURY_CAP_OBJECT_ID || !RECIPIENT_ADDRESS || !PACKAGE_ID || !MODULE) {
+    if (!TREASURY_CAP_OBJECT_ID || !PACKAGE_ID || !MODULE) {
         throw new Error("Required environment variables are not set.");
     }
 
@@ -28,7 +28,7 @@ export const mintTokens = async (amountPaid) => {
         arguments: [
             txb.object(TREASURY_CAP_OBJECT_ID),    // Treasury cap object ID
             txb.pure.u64(amountInTokens),          // Amount to mint
-            txb.pure.address(RECIPIENT_ADDRESS),   // Recipient address
+            txb.pure.address(recipientAddress),    // Recipient address
         ],
     });    
 

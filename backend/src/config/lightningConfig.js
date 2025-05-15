@@ -1,9 +1,7 @@
 // lightningConfig.js - More robust LND client configuration
 import lnService from 'ln-service';
 import { logInfo, logError } from '../utils/logger.js';
-import tls from 'tls';
 import fs from 'fs';
-import path from 'path';
 
 let lnd = null;
 
